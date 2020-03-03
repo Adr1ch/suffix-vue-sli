@@ -1,0 +1,13 @@
+.blog {
+
+  &__wrap {
+    padding: 40px 0;
+  }
+
+  &__title {
+    font-family: var(--main-ff);
+    @include fontStyles(normal, 500, 18px, 27px, var(--c-brand));
+    margin-bottom: 30px;
+  }
+  
+}

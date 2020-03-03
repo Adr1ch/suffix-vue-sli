@@ -1,0 +1,24 @@
+.footer {
+
+  &__wrap {
+    padding: 50px 0 20px 0;
+    background-color: var(--c-dark);
+  }
+
+  &__logo-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__logo {
+    margin-bottom: 40px;
+  }
+
+  &__subtitle {
+    @include fontStyles(normal, 300, 12px, 18px, var(--c-txt));
+    font-family: var(--main-ff);
+  }
+
+}

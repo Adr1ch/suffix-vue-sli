@@ -1,0 +1,12 @@
+.collapse {
+
+  &__wrap {
+    padding: 30px 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+}
