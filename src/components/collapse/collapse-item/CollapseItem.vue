@@ -1,8 +1,7 @@
 <template>
-  <li class="collapse__item">
-    <button class="collapse__btn"
-    @click="item.clicked = !item.clicked">{{ item.title }}</button>
-    <div class="collapse__txt-wrap" v-show="item.clicked">
+  <li class="collapse__item" :class="accClasses">
+    <button class="collapse__btn" @click="toggleAcc">{{ item.title }}</button>
+    <div class="collapse__txt-wrap">
       <p class="collapse__txt">{{ item.text }}</p>
     </div>
   </li>
@@ -15,5 +14,22 @@
 <script>
 export default {
   props: ['item'],
+  data() {
+    return {
+      isOpen: true,
+    };
+  },
+  methods: {
+    toggleAcc() {
+      this.isOpen = !this.isOpen;
+    },
+  },
+  computed: {
+    accClasses() {
+      return {
+        'is-closed': this.isOpen,
+      };
+    },
+  },
 };
 </script>
