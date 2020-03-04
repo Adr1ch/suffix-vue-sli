@@ -5,7 +5,8 @@
         <ul class="collapse__list">
           <CollapseItem v-for="item in collapseData"
           :key="item.id"
-          :item="item">
+          :item="item"
+          @custom-event="toggleAccordion">
           </CollapseItem>
         </ul>
       </div>
@@ -55,17 +56,18 @@ export default {
       ],
     };
   },
-  // methods: {
-  //   toggleAccordion(id) {
-  //     this.collapseData.forEach((item, index) => {
-  //       if (id === index) {
-  //         this.isOpen = !this.isOpen;
-  //         console.log(this.isOpen);
-  //       } else {
-  //         this.isOpen = true;
-  //       }
-  //     });
-  //   },
-  // },
+  methods: {
+    toggleAccordion(id) {
+      this.collapseData.forEach((item, index) => {
+        const curr = item;
+        if (id === index) {
+          curr.isOpen = !curr.isOpen;
+          console.log(this.isOpen);
+        } else {
+          curr.isOpen = true;
+        }
+      });
+    },
+  },
 };
 </script>

@@ -14,20 +14,15 @@
 <script>
 export default {
   props: ['item'],
-  data() {
-    return {
-      isOpen: true,
-    };
-  },
   methods: {
     toggleAcc() {
-      this.isOpen = !this.isOpen;
+      this.$emit('custom-event', this.item.id);
     },
   },
   computed: {
     accClasses() {
       return {
-        'is-closed': this.isOpen,
+        'is-closed': this.item.isOpen,
       };
     },
   },
