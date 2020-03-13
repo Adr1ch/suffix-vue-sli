@@ -1,15 +1,15 @@
 <template>
   <section class="subs">
-    <div class="subs__photo-section">
-      <img class="subs__photo" :src="require('@/assets/images/photo2.jpg')" alt="">
+    <div class="photo-section">
+      <img class="photo" :src="require('@/assets/images/photo2.jpg')" alt="">
     </div>
-    <div class="subs__info-section">
-      <h2 class="subs__title">ISSUE 22 - MAY 2020</h2>
-      <button class="subs__btn">SUBSCRIBE NOW</button>
+    <div class="info-section">
+      <h2 class="title">ISSUE 22 - MAY 2020</h2>
+      <button class="btn">SUBSCRIBE NOW</button>
     </div>
   </section>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import './Sub.scss';
 </style>

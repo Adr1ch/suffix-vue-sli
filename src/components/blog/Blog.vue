@@ -1,8 +1,8 @@
 <template>
   <section class="blog">
     <div class="container">
-      <div class="blog__wrap">
-        <h3 class="blog__title">FEATURED</h3>
+      <div class="wrap">
+        <h3 class="title">FEATURED</h3>
         <BlogList></BlogList>
         <GlobalList></GlobalList>
         <GlobalBtn></GlobalBtn>

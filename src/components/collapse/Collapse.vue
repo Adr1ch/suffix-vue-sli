@@ -62,7 +62,6 @@ export default {
         const curr = item;
         if (id === index) {
           curr.isOpen = !curr.isOpen;
-          console.log(this.isOpen);
         } else {
           curr.isOpen = true;
         }

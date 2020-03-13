@@ -1,74 +1,73 @@
 .baner {
   display: flex;
   background-color: var(--burg-color);
+}
 
-  &__photo-section {
-    width: 50%;
-    position: relative;
-  }
+.photo-section {
+  width: 50%;
+  position: relative;
+}
 
-  &__info-section {
-    width: 50%;
-    padding: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+.info-section {
+  width: 50%;
+  padding: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-  &__photo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  &__data {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  &__dmy {
-    @include fontStyles(normal, 500, 14px, 21px, var(--c-txt));
-    letter-spacing: 7px;
-    font-family: var(--main-ff);
-  }
+.dmy {
+  @include fontStyles(normal, 500, 14px, 21px, var(--c-txt));
+  letter-spacing: 7px;
+  font-family: var(--main-ff);
+}
 
-  &__link {
-    @include fontStyles(normal, 500, 16px, 24px, var(--c-txt));
-    text-decoration-line: underline;
-    font-family: var(--main-ff);
-  }
+.link {
+  @include fontStyles(normal, 500, 16px, 24px, var(--c-txt));
+  text-decoration-line: underline;
+  font-family: var(--main-ff);
+}
 
-  &__ti {
-    display: flex;
-    flex-direction: column;
-    margin: 60px 0;
-  }
+.ti {
+  display: flex;
+  flex-direction: column;
+  margin: 60px 0;
+}
 
-  &__title {
-    font-family: var(--main-ff);
-    @include fontStyles(normal, 500, 28px, 42px, var(--c-txt));
-    text-transform: uppercase;
-    margin-bottom: 30px;
-  }
+.title {
+  font-family: var(--main-ff);
+  @include fontStyles(normal, 500, 28px, 42px, var(--c-txt));
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
 
-  &__info {
-    font-family: var(--main-ff);
-    @include fontStyles(normal, 300, 14px, 21px, var(--c-txt));
-  }
+.info {
+  font-family: var(--main-ff);
+  @include fontStyles(normal, 300, 14px, 21px, var(--c-txt));
+}
 
-  &__btn {
-    width: 200px;
-    padding: 20px;
-    text-align: center;
-    border: 1px solid var(--c-btn-bdr);
-    background: none;
-    @include fontStyles(normal, 500, 12px, 18px, var(--c-btn-txt));
-    font-family: var(--main-ff);
-    cursor: pointer;
-  }
-
+.btn {
+  width: 200px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid var(--c-btn-bdr);
+  background: none;
+  @include fontStyles(normal, 500, 12px, 18px, var(--c-btn-txt));
+  font-family: var(--main-ff);
+  cursor: pointer;
 }

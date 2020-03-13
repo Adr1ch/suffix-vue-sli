@@ -1,8 +1,8 @@
 <template>
   <section class="blog">
     <div class="container">
-      <div class="blog__wrap">
-        <h3 class="blog__title">INTERVIEWS</h3>
+      <div class="wrap">
+        <h3 class="title">INTERVIEWS</h3>
         <GlobalList></GlobalList>
         <GlobalBtn></GlobalBtn>
         <GlobalList></GlobalList>

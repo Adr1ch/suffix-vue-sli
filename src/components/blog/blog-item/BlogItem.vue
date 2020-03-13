@@ -1,16 +1,16 @@
 <template>
-  <li class="blog__item">
-    <div class="blog__photo-wrap">
-      <img class="blog__photo" :src="require('@/assets/images/photo.jpg')" alt="">
+  <li class="item">
+    <div class="photo-wrap">
+      <img class="photo" :src="require('@/assets/images/photo.jpg')" alt="">
     </div>
-    <div class="blog__info-wrap">
-      <div class="blog__date">
-        <p class="blog__dmy">10/10/2020</p>
-        <a href="" class="blog__link">LIFESTYLE</a>
+    <div class="info-wrap">
+      <div class="date">
+        <p class="dmy">10/10/2020</p>
+        <a href="" class="link">LIFESTYLE</a>
       </div>
-      <div class="blog__title-info">
-        <h2 class="blog__title">{{ item.title }}</h2>
-        <p class="blog__info">{{ item.text }}</p>
+      <div class="title-info">
+        <h2 class="title">{{ item.title }}</h2>
+        <p class="info">{{ item.text }}</p>
       </div>
     </div>
   </li>

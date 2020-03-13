@@ -1,13 +1,9 @@
-.blog {
+.wrap {
+  padding: 40px 0;
+}
 
-  &__wrap {
-    padding: 40px 0;
-  }
-
-  &__title {
-    font-family: 'Kanit';
-    @include fontStyles(normal, 500, 18px, 27px, var(--c-brand));
-    margin-bottom: 30px;
-  }
-  
+.title {
+  font-family: 'Kanit';
+  @include fontStyles(normal, 500, 18px, 27px, var(--c-brand));
+  margin-bottom: 30px;
 }

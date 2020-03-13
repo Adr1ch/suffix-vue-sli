@@ -1,6 +1,6 @@
 <template>
-  <div class="blog__list-wrap">
-    <ul class="blog__list">
+  <div class="wrap">
+    <ul class="list">
       <BlogItem
       v-for="item in blogData"
       :item="item"
@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import './BlogList.scss';
 </style>
 

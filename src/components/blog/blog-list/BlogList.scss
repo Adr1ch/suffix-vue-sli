@@ -1,9 +1,5 @@
-.blog {
-
-  &__list {
-    display: flex;
-    padding: 20px 0;
-    margin: 0 -10px;
-  }
-  
+/deep/.list {
+  display: flex;
+  padding: 20px 0;
+  margin: 0 -10px;
 }

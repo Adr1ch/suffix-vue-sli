@@ -1,25 +1,25 @@
 <template>
   <section class="baner">
-    <div class="baner__photo-section">
-      <img class="baner__photo" :src="require('@/assets/images/baner-img.jpg')" alt="">
+    <div class="photo-section">
+      <img class="photo" :src="require('@/assets/images/baner-img.jpg')" alt="">
     </div>
-    <div class="baner__info-section">
-      <div class="baner__data">
-        <p class="baner__dmy">10/10/2020</p>
-        <a href="" class="baner__link">LIFESTYLE</a>
+    <div class="info-section">
+      <div class="data">
+        <p class="dmy">10/10/2020</p>
+        <a href="" class="link">LIFESTYLE</a>
       </div>
-      <div class="baner__ti">
-        <h2 class="baner__title">AT VERO EOS ET ACCUSSAMUSS ET</h2>
-        <p class="baner__info">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+      <div class="ti">
+        <h2 class="title">AT VERO EOS ET ACCUSSAMUSS ET</h2>
+        <p class="info">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           Quisquam perspiciatis quaerat fugit alias optio illo labore aperiam maiores
           molestias officia?
         </p>
       </div>
-      <button class="baner__btn">READ MORE</button>
+      <button class="btn">READ MORE</button>
     </div>
   </section>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import './Baner.scss';
 </style>

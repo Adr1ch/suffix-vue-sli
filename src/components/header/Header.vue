@@ -1,14 +1,14 @@
 <template>
     <header class="header">
-        <div class="header__container">
-            <div class="header__wrap">
-                <a href="" class="header__burger">
-                    <span class="header__item it1"></span>
-                    <span class="header__item it2"></span>
-                    <span class="header__item it3"></span>
+        <div class="container">
+            <div class="wrap">
+                <a href="" class="burger">
+                    <span class="item it1"></span>
+                    <span class="item it2"></span>
+                    <span class="item it3"></span>
                 </a>
-                <div class="header__logo-wrap">
-                    <a href="" class="header__logo">
+                <div class="logo-wrap">
+                    <a href="" class="logo">
                         <img :src="require('@/assets/images/logo.png')" alt="">
                     </a>
                 </div>
@@ -17,6 +17,6 @@
     </header>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import './Header.scss';
 </style>

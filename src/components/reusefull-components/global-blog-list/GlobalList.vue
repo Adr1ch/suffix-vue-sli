@@ -1,6 +1,6 @@
 <template>
-  <div class="blog__list-wrap-g">
-    <ul class="blog__list-g">
+  <div class="list-wrap">
+    <ul class="list">
       <GlobalItem
       v-for="item in globalListData"
       :key="item.id"
@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import './GlobalList.scss';
 </style>
 
