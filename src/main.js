@@ -6,7 +6,7 @@ import store from './store';
 import '@/helpers/modernizr';
 
 // main components path
-import Header from './components/header/Header.vue';
+import header from './components/header/Header.vue';
 import Services from './components/services/Services.vue';
 import Baner from './components/baner/Baner.vue';
 import Blog from './components/blog/Blog.vue';
@@ -29,7 +29,7 @@ import Client from './components/clients/clients-item/Client.vue';
 Vue.config.productionTip = false;
 
 // main components
-Vue.component('Header', Header);
+Vue.component('Header', header);
 Vue.component('Services', Services);
 Vue.component('Baner', Baner);
 Vue.component('Blog', Blog);
