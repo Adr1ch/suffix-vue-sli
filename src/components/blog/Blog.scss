@@ -5,5 +5,4 @@
 .title {
   font-family: 'Kanit';
   @include fontStyles(normal, 500, 18px, 27px, var(--c-brand));
-  margin-bottom: 30px;
 }

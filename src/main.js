@@ -3,6 +3,8 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
+import '@/helpers/modernizr';
+
 // main components path
 import Header from './components/header/Header.vue';
 import Services from './components/services/Services.vue';
@@ -18,9 +20,9 @@ import Clients from './components/clients/Clients.vue';
 import Service from './components/services/service-item/Service.vue';
 import BlogList from './components/blog/blog-list/BlogList.vue';
 import BlogItem from './components/blog/blog-item/BlogItem.vue';
-import GlobalList from './components/reusefull-components/global-blog-list/GlobalList.vue';
-import GlobalItem from './components/reusefull-components/global-blog-item/GlobalItem.vue';
-import GlobalBtn from './components/reusefull-components/global-button/GlobalBtn.vue';
+import GlobalList from './components/chunks/reusefull-components/global-blog-list/GlobalList.vue';
+import GlobalItem from './components/chunks/reusefull-components/global-blog-item/GlobalItem.vue';
+import GlobalBtn from './components/chunks/reusefull-components/global-button/GlobalBtn.vue';
 import CollapseItem from './components/collapse/collapse-item/CollapseItem.vue';
 import Client from './components/clients/clients-item/Client.vue';
 
