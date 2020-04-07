@@ -22,8 +22,5 @@ export default {
   computed: {
     ...mapState('translations', ['trans']),
   },
-  created() {
-    this.$store.dispatch('translations/getTrans');
-  },
 };
 </script>

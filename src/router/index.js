@@ -48,7 +48,6 @@ router.beforeEach(async (to, from, next) => {
       next('/login');
     },
   );
-  store.dispatch('translations/getTrans', null, { root: true });
 });
 
 export default router;

@@ -4,10 +4,14 @@
       <div class="wrap">
         <h3 class="title">{{categories[0] | toUpper}}</h3>
         <GlobalList :tag="categories[0]" v-if="isLoad" :skip="1" :top="3"></GlobalList>
-        <GlobalBtn :btnTxt="trans.other.all"></GlobalBtn>
+        <router-link to="/blog">
+          <GlobalBtn :btnTxt="trans.other.all"></GlobalBtn>
+        </router-link>
         <h3 class="title">{{categories[1] | toUpper}}</h3>
         <GlobalList :tag="categories[1]" v-if="isLoad" :skip="1" :top="3"></GlobalList>
-        <GlobalBtn :btnTxt="trans.other.all"></GlobalBtn>
+        <router-link to="/blog">
+          <GlobalBtn :btnTxt="trans.other.all"></GlobalBtn>
+        </router-link>
       </div>
     </div>
   </section>

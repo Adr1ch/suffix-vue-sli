@@ -5,7 +5,9 @@
         <h3 class="title">{{categories[0] | toUpper}}</h3>
         <BlogList :tag="categories[0]" :top="2" :skip="3"></BlogList>
         <GlobalList :tag="categories[0]" v-if="isLoad" :top="3" :skip="0"></GlobalList>
-        <GlobalBtn :btnTxt="trans.other.all"></GlobalBtn>
+        <router-link to="/blog">
+          <GlobalBtn :btnTxt="trans.other.all"></GlobalBtn>
+        </router-link>
       </div>
     </div>
   </section>
