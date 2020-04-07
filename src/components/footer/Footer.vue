@@ -2,10 +2,10 @@
   <footer class="footer">
     <div class="wrap">
       <div class="logo-wrap">
-        <a href="" class="logo">
+        <router-link to="/" class="logo">
           <img :src="require('@/assets/images/logo2.png')" alt="">
-        </a>
-        <p class="subtitle">Designed by Suffix</p>
+        </router-link>
+        <p class="subtitle">{{trans.other.footer}}</p>
       </div>
     </div>
   </footer>
@@ -14,3 +14,16 @@
 <style scoped lang="scss">
 @import './Footer.scss';
 </style>
+
+<script>
+import { mapState } from 'vuex';
+
+export default {
+  computed: {
+    ...mapState('translations', ['trans']),
+  },
+  created() {
+    this.$store.dispatch('translations/getTrans');
+  },
+};
+</script>

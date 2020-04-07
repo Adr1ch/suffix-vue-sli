@@ -1,16 +1,18 @@
 <template>
   <li class="item">
     <div class="photo-wrap">
-      <img class="photo" :src="require('@/assets/images/photo.jpg')" alt="">
+      <img class="photo" :src="item.data.image" alt="">
     </div>
     <div class="info-wrap">
       <div class="date">
-        <p class="dmy">10/10/2020</p>
-        <a href="" class="link">LIFESTYLE</a>
+        <p class="dmy">{{item.data.date | formatDate}}</p>
+        <router-link :to="'/blog/' + item.data.slug" class="link">
+          {{$t(`tags.${getLink(item.data.reference)}`)}}
+        </router-link>
       </div>
       <div class="title-info">
-        <h2 class="title">{{ item.title }}</h2>
-        <p class="info">{{ item.text }}</p>
+        <h2 class="title">{{ item.data.title }}</h2>
+        <p class="info" v-html="item.data.content"></p>
       </div>
     </div>
   </li>
@@ -22,6 +24,10 @@
 
 <script>
 export default {
-  props: ['item'],
+  props: {
+    item: {
+      type: Object,
+    },
+  },
 };
 </script>

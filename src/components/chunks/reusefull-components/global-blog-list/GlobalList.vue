@@ -1,8 +1,8 @@
 <template>
   <div class="list-wrap">
-    <ul class="list">
+    <ul class="list" v-if="filtArticles[tag]">
       <GlobalItem
-      v-for="item in globalListData"
+      v-for="item in filtArticles[tag]"
       :key="item.id"
       :item="item">
       </GlobalItem>
@@ -15,24 +15,35 @@
 </style>
 
 <script>
+import { mapState, mapActions } from 'vuex';
+
 export default {
-  data() {
-    return {
-      globalListData: [
-        {
-          id: 0,
-          title: 'Lorem ipsum consectetur adipisicing elit.',
-        },
-        {
-          id: 1,
-          title: 'Lorem ipsum dolor sit amet.',
-        },
-        {
-          id: 2,
-          title: 'Lorem ipsum consectetur elit.',
-        },
-      ],
-    };
+  props: {
+    tag: {
+      type: String,
+    },
+    skip: {
+      type: Number,
+    },
+    top: {
+      type: Number,
+    },
+  },
+  computed: {
+    ...mapState('blog', ['filtArticles', 'tags']),
+  },
+  created() {
+    const el = this.tags.find((i) => i.data.name === this.tag);
+    const tagId = el && el.id ? el.id : null;
+    this.getArticlesByTag({
+      tagId,
+      tag: this.tag,
+      toSkip: this.skip,
+      toTop: this.top,
+    });
+  },
+  methods: {
+    ...mapActions('blog', ['getArticlesByTag']),
   },
 };
 </script>

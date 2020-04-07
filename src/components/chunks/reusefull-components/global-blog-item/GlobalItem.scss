@@ -41,3 +41,8 @@
   text-decoration-line: underline;
   font-family: var(--main-ff);
 }
+
+.text {
+  @include fontStyles(normal, 500, 12px, 18px, var(--c-dark));
+  font-family: var(--main-ff);
+}

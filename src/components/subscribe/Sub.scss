@@ -27,7 +27,7 @@
 }
 
 .title {
-  font-family: 'Kanit';
+  font-family: var(--main-ff);
   @include fontStyles(normal, 500, 34px, 51px, var(--c-txt));
   margin-bottom: 20px;
 }
@@ -37,9 +37,9 @@
   padding: 10px 20px;
   margin: 10px;
   background: none;
-  width: 200px;
+  min-width: 200px;
   text-align: center;
   @include fontStyles(normal, 500, 14px, 21px, var(--c-btn-txt));
-  font-family: 'Kanit';
+  font-family: var(--main-ff);
   cursor: pointer;
 }

@@ -1,0 +1,31 @@
+<template>
+  <div class="client">
+    <div class="client-header">
+      <div class="container">
+        <div class="logo-wrap">
+          <img class="logo" :src="item[0].data.image[0]" alt="">
+          <p class="sub-title">{{ item[0].data.title }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="client-content">
+      <div class="container">
+        <p class="content" v-html="item[0].data.content"></p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped lang="scss">
+@import './Client.scss';
+</style>
+
+<script>
+export default {
+  props: {
+    item: {
+      type: [Array, Object],
+    },
+  },
+};
+</script>

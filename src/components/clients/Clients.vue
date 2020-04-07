@@ -9,7 +9,7 @@
       <div class="clients-wrap">
         <h3 class="title">OUR CLIENTS</h3>
         <ul class="list">
-          <Client v-for="client in clients" :key="client.id"></Client>
+          <Client v-for="client in clients" :key="client.id" :client="client"></Client>
         </ul>
       </div>
     </div>
@@ -21,30 +21,18 @@
 </style>
 
 <script>
+import Client from '@/components/clients/clients-item/Client.vue';
+import { mapState } from 'vuex';
+
 export default {
-  data() {
-    return {
-      clients: [
-        {
-          id: 0,
-        },
-        {
-          id: 1,
-        },
-        {
-          id: 2,
-        },
-        {
-          id: 3,
-        },
-        {
-          id: 4,
-        },
-        {
-          id: 5,
-        },
-      ],
-    };
+  components: {
+    Client,
+  },
+  computed: {
+    ...mapState('clients', ['clients']),
+  },
+  created() {
+    this.$store.dispatch('clients/getClients');
   },
 };
 </script>

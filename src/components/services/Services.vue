@@ -4,9 +4,9 @@
             <div class="wrap">
                 <ul class="list">
                     <ServiceItem
-                        v-for="item in serviceData"
-                        :key="item.id"
-                        :item="item">
+                      v-for="item in advantages"
+                      :key="item.id"
+                      :item="item">
                     </ServiceItem>
                 </ul>
             </div>
@@ -19,48 +19,21 @@
 </style>
 
 <script>
+import ServiceItem from '@/components/services/service-item/Service.vue';
+import { mapState, mapGetters } from 'vuex';
+
 export default {
-  data() {
-    return {
-      serviceData: [
-        {
-          id: 0,
-          sprite: 'icon1.png',
-          title: 'Webdesign',
-          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore libero possimus aliquid? Praesentium eaque veritatis sed, eum quia unde assumenda.',
-        },
-        {
-          id: 1,
-          sprite: 'icon1.png',
-          title: 'Webdev',
-          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore libero possimus aliquid? Praesentium eaque veritatis sed, eum quia unde assumenda.',
-        },
-        {
-          id: 2,
-          sprite: 'icon1.png',
-          title: 'Marketing',
-          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore libero possimus aliquid? Praesentium eaque veritatis sed, eum quia unde assumenda.',
-        },
-        {
-          id: 3,
-          sprite: 'icon1.png',
-          title: 'Marketing',
-          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore libero possimus aliquid? Praesentium eaque veritatis sed, eum quia unde assumenda.',
-        },
-        {
-          id: 4,
-          sprite: 'icon1.png',
-          title: 'Webdesign',
-          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore libero possimus aliquid? Praesentium eaque veritatis sed, eum quia unde assumenda.',
-        },
-        {
-          id: 5,
-          sprite: 'icon1.png',
-          title: 'Webdev',
-          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore libero possimus aliquid? Praesentium eaque veritatis sed, eum quia unde assumenda.',
-        },
-      ],
-    };
+  components: {
+    ServiceItem,
+  },
+  computed: {
+    ...mapState('advantages', ['advantages']),
+    ...mapGetters('advantages', {
+      advantages: 'revArr',
+    }),
+  },
+  created() {
+    this.$store.dispatch('advantages/getAdvantages');
   },
 };
 </script>

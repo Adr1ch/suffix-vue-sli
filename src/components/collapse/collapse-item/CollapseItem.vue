@@ -1,13 +1,13 @@
 <template>
-  <li class="collapse__item" :class="accClasses">
-    <button class="collapse__btn" @click="toggleAcc">{{ item.title }}</button>
-    <div class="collapse__txt-wrap">
-      <p class="collapse__txt">{{ item.text }}</p>
+  <li class="item" :class="accClasses">
+    <button class="btn" @click="toggleAcc">{{ item.data.title }}</button>
+    <div class="txt-wrap">
+      <p class="txt" v-html="item.data.content"></p>
     </div>
   </li>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import './CollapseItem.scss';
 </style>
 

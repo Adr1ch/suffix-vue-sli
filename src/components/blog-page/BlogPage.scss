@@ -1,0 +1,48 @@
+.header {
+  background-color: var(--c-dark);
+}
+
+.blog-content {
+  padding: 50px 0 50px 0;
+}
+
+.logo-wrap {
+  padding: 120px 0 130px 0;
+  max-width: 600px;
+}
+
+.dl-wrap {
+  color: var(--c-txt);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 70px;
+}
+
+.link {
+  color: var(--c-txt);
+}
+
+.logo {
+  margin-bottom: 50px;
+}
+
+.sub-title {
+  @include fontStyles(normal, 500, 28px, 42px, var(--c-txt));
+}
+
+.title {
+  @include fontStyles(normal, 500, 18px, 27px, var(--c-dark));
+  font-family: var(--main-ff);
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+.content {
+  @include fontStyles(normal, 300, 14px, 21px, var(--c-dark));
+  font-family: var(--main-ff);
+  margin-bottom: 50px;
+}
+
+.blog-page {
+  font-family: var(--main-ff);
+}

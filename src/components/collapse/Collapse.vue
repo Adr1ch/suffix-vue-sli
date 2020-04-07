@@ -1,8 +1,8 @@
 <template>
   <section class="collapse">
     <div class="container">
-      <div class="collapse__wrap">
-        <ul class="collapse__list">
+      <div class="wrap">
+        <ul class="list">
           <CollapseItem v-for="item in collapseData"
           :key="item.id"
           :item="item"
@@ -14,46 +14,20 @@
   </section>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import './Collapse.scss';
 </style>
 
 <script>
+import CollapseItem from '@/components/collapse/collapse-item/CollapseItem.vue';
+
 export default {
+  components: {
+    CollapseItem,
+  },
   data() {
     return {
-      collapseData: [
-        {
-          id: 0,
-          isOpen: true,
-          title: 'Lorem ipsum dolor amet.',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo molestiae, impedit eaque mollitia ea ipsam quisquam voluptatibus! Voluptatum, est iusto! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, odio?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo molestiae, impedit eaque mollitia ea ipsam quisquam voluptatibus! Voluptatum, est iusto! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, odio?',
-        },
-        {
-          id: 1,
-          isOpen: true,
-          title: 'Lorem ipsum dolor amet.',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo molestiae, impedit eaque mollitia ea ipsam quisquam voluptatibus! Voluptatum, est iusto! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, odio?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo molestiae, impedit eaque mollitia ea ipsam quisquam voluptatibus! Voluptatum, est iusto! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, odio?',
-        },
-        {
-          id: 2,
-          isOpen: true,
-          title: 'Lorem ipsum dolor amet.',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo molestiae, impedit eaque mollitia ea ipsam quisquam voluptatibus! Voluptatum, est iusto! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, odio?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo molestiae, impedit eaque mollitia ea ipsam quisquam voluptatibus! Voluptatum, est iusto! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, odio?',
-        },
-        {
-          id: 3,
-          isOpen: true,
-          title: 'Lorem ipsum dolor amet.',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo molestiae, impedit eaque mollitia ea ipsam quisquam voluptatibus! Voluptatum, est iusto! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, odio?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo molestiae, impedit eaque mollitia ea ipsam quisquam voluptatibus! Voluptatum, est iusto! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, odio?',
-        },
-        {
-          id: 4,
-          isOpen: true,
-          title: 'Lorem ipsum dolor amet.',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo molestiae, impedit eaque mollitia ea ipsam quisquam voluptatibus! Voluptatum, est iusto! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, odio?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo molestiae, impedit eaque mollitia ea ipsam quisquam voluptatibus! Voluptatum, est iusto! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, odio?',
-        },
-      ],
+      collapseData: null,
     };
   },
   methods: {
@@ -67,6 +41,15 @@ export default {
         }
       });
     },
+  },
+  created() {
+    this.$store.dispatch('collapse/getCollapse').then((data) => {
+      this.collapseData = data.map((item, index) => ({
+        ...item,
+        isOpen: true,
+        id: index,
+      }));
+    });
   },
 };
 </script>

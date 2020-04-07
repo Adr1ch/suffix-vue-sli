@@ -6,9 +6,9 @@
 
 .wrap {
   padding: 45px 0;
+  position: relative;
   display: flex;
   align-items: center;
-  position: relative;
 }
 
 .burger {
@@ -49,4 +49,38 @@
 
 .it3 {
   top: 20px;
+}
+
+.hover-menu {
+  position: absolute;
+  width: 300px;
+  padding: 40px 50px;
+  z-index: 200;
+  top: 80px;
+  background-color: black;
+  opacity: 0.7;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  visibility: hidden;
+}
+
+.is-showed .hover-menu {
+  visibility: visible;
+}
+
+.menu-item {
+  font-family: 'Kanit', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.link {
+  color: white;
+  display: flex;
+}
+
+.icon-wrap {
+  width: 35px;
 }

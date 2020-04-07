@@ -1,0 +1,108 @@
+.title-wrap {
+  padding: 100px;
+  background-color: var(--c-dark);
+  text-align: center;
+}
+
+.title {
+  @include fontStyles(normal, 500, 48px, 72px, var(--c-txt));
+  text-transform: uppercase;
+  font-family: var(--main-ff);
+}
+
+.content-wrap {
+  padding: 100px 0 50px 0;
+}
+
+.list {
+  display: flex;
+  margin: 0 -5px;
+}
+
+.item {
+  margin: 10px;
+}
+
+.articles-wrap {
+  padding: 50px 0 0 0;
+}
+
+.all-art {
+  padding: 50px 0 0 0;
+}
+
+.art-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -5px;
+  padding: 30px 0;
+}
+
+.button {
+  border: none;
+  background-color: var(--c-btn-bg);
+  padding: 10px 20px;
+  width: 250px;
+  text-align: center;
+  @include fontStyles(normal, 500, 14px, 21px, var(--c-btn-txt));
+  font-family: var(--main-ff);
+}
+
+////
+
+.current {
+  padding: 50px 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+
+.item_ {
+  width: calc(100% / 2 - 20px);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-wrap {
+  position: relative;
+  padding-top: 66.25%;
+  margin-bottom: 20px;
+}
+
+.photo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.title_ {
+  font-family: var(--main-ff);
+  @include fontStyles(normal, 500, 24px, 36px, var(--c-brand));
+  margin: 20px 0;
+}
+
+.info {
+  font-family: var(--main-ff);
+  @include fontStyles(normal, 300, 18px, 27px, var(--c-brand));
+}
+
+.date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dmy {
+  @include fontStyles(normal, 500, 12px, 18px, var(--c-dark));
+  letter-spacing: 7px;
+  font-family: var(--main-ff);
+}
+
+.link {
+  @include fontStyles(normal, 500, 12px, 18px, var(--c-dark));
+  text-decoration-line: underline;
+  font-family: var(--main-ff);
+}

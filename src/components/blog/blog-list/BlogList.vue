@@ -2,7 +2,7 @@
   <div class="wrap">
     <ul class="list">
       <BlogItem
-      v-for="item in blogData"
+      v-for="item in currArticle[0]"
       :item="item"
       :key="item.id">
       </BlogItem>
@@ -15,26 +15,47 @@
 </style>
 
 <script>
+import BlogItem from '@/components/blog/blog-item/BlogItem.vue';
+import { mapState, mapActions } from 'vuex';
+
 export default {
   data() {
     return {
-      blogData: [
-        {
-          id: 0,
-          date: '10/10/2020',
-          name: 'LIFESTYLE',
-          title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam!',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nisi assumenda iusto dolores illum repellendus debitis sint consequuntur maxime beatae.',
-        },
-        {
-          id: 1,
-          date: '10/10/2020',
-          name: 'LIFESTYLE',
-          title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam!',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nisi assumenda iusto dolores illum repellendus debitis sint consequuntur maxime beatae.',
-        },
-      ],
+      currArticle: [],
     };
+  },
+  props: {
+    tag: {
+      type: String,
+    },
+    top: {
+      type: Number,
+    },
+    skip: {
+      type: Number,
+    },
+  },
+  components: {
+    BlogItem,
+  },
+  computed: {
+    ...mapState('blog', ['tags']),
+  },
+  created() {
+    this.getArticlesByTagName().then(() => {
+      const el = this.tags.find((i) => i.data.name === this.tag);
+      const tagId = el && el.id ? el.id : null;
+      this.getArticlesByTagName({
+        tagId,
+        toSkip: this.skip,
+        toTop: this.top,
+      }).then((r) => {
+        this.currArticle = r;
+      });
+    });
+  },
+  methods: {
+    ...mapActions('blog', ['getArticlesByTagName']),
   },
 };
 </script>

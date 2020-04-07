@@ -7,8 +7,8 @@ module.exports = {
       // в конце оператора, в то время как для `sass` точки с запятой не требуется
       // в этом случае синтаксис `scss` можно настроить отдельно с помощью опции `scss`
       scss: {
-        prependData: `@import "@/assets/scss/global.scss";`
-      }
-    }
-  }
+        prependData: '@import "@/assets/scss/global.scss";',
+      },
+    },
+  },
 };

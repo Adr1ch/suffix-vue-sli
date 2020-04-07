@@ -1,7 +1,7 @@
 :root {
   --c-brand: #1F1F1D;
   --burg-color: black;
-  --main-ff: 'Kanit';
+  --main-ff: 'Montserrat';
   --c-btn-bg: #303030;
   --c-dark: black;
   --c-btn-txt: white;
@@ -31,12 +31,17 @@ ul {
 
 button {
   border: none;
+  background: none;
 }
 
 .container {
   max-width: 1240px;
   padding: 0 20px;
   margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
 }
 
 // body {
