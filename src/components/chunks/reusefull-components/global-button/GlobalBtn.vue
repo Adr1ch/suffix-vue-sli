@@ -1,6 +1,6 @@
 <template>
   <div class="btn-wrap">
-    <button class="btn" @click="someMethod">
+    <button class="btn">
       {{$t(btnTxt) | toUpper}}
     </button>
   </div>
@@ -15,9 +15,6 @@ export default {
   props: {
     btnTxt: {
       type: String,
-    },
-    someMethod: {
-      type: Function,
     },
   },
 };

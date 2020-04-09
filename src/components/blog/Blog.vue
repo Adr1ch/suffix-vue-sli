@@ -2,11 +2,11 @@
   <section class="blog">
     <div class="container">
       <div class="wrap">
-        <h3 class="title">{{categories[0] | toUpper}}</h3>
+        <h3 class="title">{{$t(categories[0]) | toUpper}}</h3>
         <BlogList :tag="categories[0]" :top="2" :skip="3"></BlogList>
         <GlobalList :tag="categories[0]" v-if="isLoad" :top="3" :skip="0"></GlobalList>
         <router-link to="/blog">
-          <GlobalBtn :btnTxt="trans.other.all"></GlobalBtn>
+          <GlobalBtn :btnTxt="$t(trans.other.all)"></GlobalBtn>
         </router-link>
       </div>
     </div>

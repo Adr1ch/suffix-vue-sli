@@ -8,7 +8,10 @@
         <div class="btn-wrap">
           <ul class="list">
             <li class="item">
-              <GlobalBtn :btnTxt="trans.other.all" :someMethod="showAll"></GlobalBtn>
+              <button class="button"
+                @click="showAll">
+                {{trans.other.all | toUpper}}
+              </button>
             </li>
             <li class="item" v-for="i in tags" :key="i.id">
               <button class="button"

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Baner :tag="'lifestyle'" :skip="5" :top="1"></Baner>
+    <Baner :tag="'lifestyle'" :top="1" :skip="5"></Baner>
     <Services></Services>
     <Blog></Blog>
     <Clients></Clients>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+// import { mapState } from 'vuex';
 import Baner from '@/components/baner/Baner.vue';
 import Services from '@/components/services/Services.vue';
 import Blog from '@/components/blog/Blog.vue';
@@ -29,5 +30,11 @@ export default {
     Chapters,
     Collapse,
   },
+  // created() {
+  //   this.$store.dispatch('blog/getArticlesForHomePage');
+  // },
+  // computed: {
+  //   ...mapState('blog', ['articlesForHomePage']),
+  // },
 };
 </script>

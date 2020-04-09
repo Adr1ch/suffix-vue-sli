@@ -46,3 +46,17 @@
   @include fontStyles(normal, 500, 12px, 18px, var(--c-dark));
   font-family: var(--main-ff);
 }
+
+@include respond-below(xs) {
+  .item {
+    min-width: 220px;
+  }
+
+  .title {
+    @include fontStyles(normal, 500, 16px, 20px, var(--c-dark));
+  }
+
+  .text {
+    @include fontStyles(normal, 500, 12px, 15px, var(--c-dark));
+  }
+}

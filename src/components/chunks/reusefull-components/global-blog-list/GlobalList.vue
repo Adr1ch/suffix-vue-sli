@@ -30,7 +30,7 @@ export default {
     },
   },
   computed: {
-    ...mapState('blog', ['filtArticles', 'tags']),
+    ...mapState('blog', ['filtArticles', 'tags', 'articlesForHomePage']),
   },
   created() {
     const el = this.tags.find((i) => i.data.name === this.tag);

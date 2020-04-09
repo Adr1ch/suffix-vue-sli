@@ -47,3 +47,17 @@
   text-decoration-line: underline;
   font-family: var(--main-ff);
 }
+
+@include respond-below(xs) {
+  .item {
+    width: calc(100% - 20px);
+  }
+
+  .title {
+    @include fontStyles(normal, 500, 16px, 25px, var(--c-brand));
+  }
+
+  .info {
+    @include fontStyles(normal, 500, 14px, 20px, var(--c-brand));
+  }
+}

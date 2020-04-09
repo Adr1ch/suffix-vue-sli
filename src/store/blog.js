@@ -7,6 +7,7 @@ const mutt = {
   SET_LOADED: 'SET_LOADED',
   SET_TAGS: 'SET_TAGS',
   SET_ARTICLES_BY_TAGS: 'SET_ARTICLES_BY_TAG',
+  SET_ARTICLES_FOR_HOME: 'SET_ARTICLES_FOR_HOME',
 };
 
 export { mutt };
@@ -19,6 +20,7 @@ export default {
     filtArticles: {},
     article: [],
     loaded: false,
+    articlesForHomePage: {},
   },
   mutations: {
     [mutt.SET_TAGS](state, tags) {
@@ -26,9 +28,6 @@ export default {
     },
     [mutt.SET_ARTICLES_BY_TAGS](state, { data, tag }) {
       if (tag) Vue.set(state.filtArticles, tag, data);
-      // if (tag in state.filtArticles) {
-      //   state.filtArticles = { ...state.filtArticles, [tag]: data };
-      // }
     },
     [mutt.SET_ARTICLES](state, articles) {
       state.articles = articles;
@@ -41,6 +40,9 @@ export default {
     },
     [mutt.SET_LOADED](state) {
       state.loaded = true;
+    },
+    [mutt.SET_ARTICLES_FOR_HOME](state, { data, tag }) {
+      Vue.set(state.articlesForHomePage, tag, data);
     },
   },
   actions: {
@@ -128,13 +130,42 @@ export default {
         dispatch('getTags'),
       ]);
     },
+    //
+    //
+    //
+    setArticlesWithTag({ commit, state }) {
+      return Promise.all(state.tags.map((tag, index) => new Promise((resolve, reject) => {
+        const settingObj = {
+          params: {
+            $filter: `data/reference/iv eq '${tag.id}'`,
+            $top: index === 1 ? 6 : 3,
+          },
+        };
+        http.get('/api/content/suffix/articles', settingObj).then((res) => {
+          commit(mutt.SET_ARTICLES_FOR_HOME, {
+            data: res.data.items,
+            tag: tag.data.name,
+          });
+          resolve(res.data);
+        },
+        ({ response }) => {
+          reject(response.data);
+        });
+      })));
+    },
+    getArticlesForHomePage({ dispatch }) {
+      return dispatch('getTags').then(() => dispatch('setArticlesWithTag'));
+    },
+    //
+    //
+    //
   },
   getters: {
     revArt(state) {
       return state.articles.reverse();
     },
     getFirstArt(state) {
-      return state.articles.reverse() && state.articles[0];
+      return state.articlesForHomePage.lifestyle[5];
     },
     getTagById(state) {
       return (id) => state.tags.find((i) => i.id === id);

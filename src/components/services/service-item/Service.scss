@@ -26,3 +26,18 @@
   font-family: var(--main-ff);
   @include fontStyles(normal, normal, 16.2px, 163.35%, var(--c-dark));
 }
+
+@include respond-below (xs) {
+  .item {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .title {
+    @include fontStyles(normal, 500, 16px, 25px, var(--c-dark));
+  }
+
+  .info {
+    @include fontStyles(normal, normal, 14px, 20px, var(--c-dark));
+  }
+}
