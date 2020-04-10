@@ -8,6 +8,7 @@ const mutt = {
   SET_TAGS: 'SET_TAGS',
   SET_ARTICLES_BY_TAGS: 'SET_ARTICLES_BY_TAG',
   SET_ARTICLES_FOR_HOME: 'SET_ARTICLES_FOR_HOME',
+  SET_CURRENT_CATEGORY: 'SET_CURRENT_CATEGORY',
 };
 
 export { mutt };
@@ -21,6 +22,7 @@ export default {
     article: [],
     loaded: false,
     articlesForHomePage: {},
+    currentCategory: [],
   },
   mutations: {
     [mutt.SET_TAGS](state, tags) {
@@ -41,6 +43,9 @@ export default {
     [mutt.SET_LOADED](state) {
       state.loaded = true;
     },
+    [mutt.SET_CURRENT_CATEGORY](state, value) {
+      state.currentCategory = value;
+    },
     [mutt.SET_ARTICLES_FOR_HOME](state, { data, tag }) {
       Vue.set(state.articlesForHomePage, tag, data);
     },
@@ -52,16 +57,19 @@ export default {
       }
       commit(mutt.SET_LOADED);
       return new Promise((resolve) => {
-        http.get('/api/content/suffix/categories').then((res) => {
+        http.get('/api/content/newsuffix/categories').then((res) => {
           commit(mutt.SET_TAGS, res.data.items);
           resolve(res.data);
         });
       });
     },
+    //
+    //
+    //
     getArticles({ commit, dispatch }) {
       Promise.all([
         new Promise((resolve, reject) => {
-          http.get('/api/content/suffix/articles').then((res) => {
+          http.get('/api/content/newsuffix/articles').then((res) => {
             commit(mutt.SET_ARTICLES, res.data.items);
             resolve(res.data);
           },
@@ -72,9 +80,12 @@ export default {
         dispatch('getTags'),
       ]);
     },
+    //
+    //
+    //
     getArticleBySlug({ commit }, slug) {
       return new Promise((resolve) => {
-        http.get('/api/content/suffix/articles', {
+        http.get('/api/content/newsuffix/articles', {
           params: {
             $filter: `data/slug/iv eq '${slug}'`,
           },
@@ -84,12 +95,15 @@ export default {
         });
       });
     },
+    //
+    //
+    //
     getArticlesByTag({ commit, dispatch }, {
       tagId, tag, toSkip, toTop,
     } = { tagId: '', toSkip: 0, toTop: 3 }) {
       return Promise.all([
         new Promise((resolve, reject) => {
-          http.get('/api/content/suffix/articles', {
+          http.get('/api/content/newsuffix/articles', {
             params: {
               $filter: `data/reference/iv eq '${tagId}'`,
               $skip: toSkip,
@@ -109,12 +123,15 @@ export default {
         dispatch('getTags'),
       ]);
     },
+    //
+    //
+    //
     getArticlesByTagName({ dispatch }, {
       tagId, toSkip, toTop,
     } = { tagId: '', toSkip: 0, toTop: 3 }) {
       return Promise.all([
         new Promise((resolve, reject) => {
-          http.get('/api/content/suffix/articles', {
+          http.get('/api/content/newsuffix/articles', {
             params: {
               $filter: `data/reference/iv eq '${tagId}'`,
               $skip: toSkip,
@@ -133,29 +150,51 @@ export default {
     //
     //
     //
-    setArticlesWithTag({ commit, state }) {
-      return Promise.all(state.tags.map((tag, index) => new Promise((resolve, reject) => {
-        const settingObj = {
-          params: {
-            $filter: `data/reference/iv eq '${tag.id}'`,
-            $top: index === 1 ? 6 : 3,
+    // setArticlesWithTag({ commit, state }) {
+    //   return Promise.all(state.tags.map((tag, index) => new Promise((resolve, reject) => {
+    //     const settingObj = {
+    //       params: {
+    //         $filter: `data/reference/iv eq '${tag.id}'`,
+    //         $top: index === 1 ? 6 : 3,
+    //       },
+    //     };
+    //     http.get('/api/content/suffix/articles', settingObj).then((res) => {
+    //       commit(mutt.SET_ARTICLES_FOR_HOME, {
+    //         data: res.data.items,
+    //         tag: tag.data.name,
+    //       });
+    //       resolve(res.data);
+    //     },
+    //     ({ response }) => {
+    //       reject(response.data);
+    //     });
+    //   })));
+    // },
+    // getArticlesForHomePage({ dispatch }) {
+    //   return dispatch('getTags').then(() => dispatch('setArticlesWithTag'));
+    // },
+    getCurrentCategory({ commit, dispatch }, tagId) {
+      return Promise.all([
+        new Promise((resolve, reject) => {
+          http.get('/api/content/newsuffix/articles', {
+            params: {
+              $filter: `data/reference/iv eq '${tagId}'`,
+            },
+          }).then((res) => {
+            commit(mutt.SET_CURRENT_CATEGORY, res.data.items);
+            resolve(res.data);
           },
-        };
-        http.get('/api/content/suffix/articles', settingObj).then((res) => {
-          commit(mutt.SET_ARTICLES_FOR_HOME, {
-            data: res.data.items,
-            tag: tag.data.name,
+          ({ response }) => {
+            reject(response.data);
           });
-          resolve(res.data);
-        },
-        ({ response }) => {
-          reject(response.data);
-        });
-      })));
+        }),
+        dispatch('getTags'),
+      ]);
     },
-    getArticlesForHomePage({ dispatch }) {
-      return dispatch('getTags').then(() => dispatch('setArticlesWithTag'));
-    },
+    //
+    //
+    //
+    //
     //
     //
     //

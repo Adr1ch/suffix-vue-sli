@@ -23,8 +23,8 @@ export default {
       return new Promise((resolve) => {
         const body = new FormData();
         body.set('grant_type', 'client_credentials');
-        body.set('client_id', 'suffix:default');
-        body.set('client_secret', 'pjevj0td3zexoe7iqglghsyrqaluzkbywjhjtjx7mqcx');
+        body.set('client_id', 'newsuffix:default');
+        body.set('client_secret', 'ghcwud6zsanehvfa0hahx3zsrl1olzoxam9sdpmyp5mx');
         body.set('scope', 'squidex-api');
         http.post('/identity-server/connect/token', body).then((resp) => {
           const token = resp.data.access_token;

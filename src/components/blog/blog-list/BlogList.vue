@@ -50,6 +50,7 @@ export default {
         toSkip: this.skip,
         toTop: this.top,
       }).then((r) => {
+        if (this.currArticle.length) return;
         this.currArticle = r;
       });
     });

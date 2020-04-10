@@ -15,7 +15,7 @@
         <p class="info" v-html="currArticle[0][0].data.content"></p>
       </div>
       <router-link :to="'/blog/' + currArticle[0][0].data.slug" class="btn">
-        {{$t(`other.${trans.other.more}`) | toUpper}}
+        {{$t(trans.other.more) | toUpper}}
       </router-link>
     </div>
   </section>
@@ -58,6 +58,7 @@ export default {
         toSkip: this.skip,
         toTop: this.top,
       }).then((r) => {
+        if (this.currArticle.length) return;
         this.currArticle = r;
       });
     });

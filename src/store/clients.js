@@ -28,7 +28,7 @@ export default {
         return true;
       }
       return new Promise((resolve) => {
-        http.get('/api/content/suffix/clients').then((res) => {
+        http.get('/api/content/newsuffix/clients').then((res) => {
           commit(mutt.SET_CLIENTS, res.data.items);
           resolve(res.data.items);
         });
@@ -36,7 +36,7 @@ export default {
     },
     getClientsBySlug({ commit }, slug) {
       return new Promise((resolve) => {
-        http.get('/api/content/suffix/clients', {
+        http.get('/api/content/newsuffix/clients', {
           params: {
             $filter: `data/slug/iv eq '${slug}'`,
           },

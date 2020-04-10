@@ -20,7 +20,7 @@ export default {
         return true;
       }
       return new Promise((resolve) => {
-        http.get('/api/content/suffix/advantages').then((res) => {
+        http.get('/api/content/newsuffix/advantages').then((res) => {
           commit(mutt.SET_ADVANTAGES, res.data.items);
           resolve(res.data);
         });

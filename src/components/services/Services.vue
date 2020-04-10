@@ -28,6 +28,7 @@ export default {
   },
   computed: {
     ...mapState('advantages', ['advantages']),
+    ...mapState('translations', ['trans']),
     ...mapGetters('advantages', {
       advantages: 'revArr',
     }),

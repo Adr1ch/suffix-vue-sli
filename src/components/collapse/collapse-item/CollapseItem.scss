@@ -37,3 +37,11 @@
   font-family: var(--main-ff);
   @include fontStyles(normal, 300, 18px, 27px, var(--c-brand));
 }
+
+@include respond-below(xs) {
+  .btn {
+    border: 2px solid var(--c-dark);
+    padding: 10px 20px;
+    @include fontStyles(normal, 300, 12px, 20px, var(--c-dark));
+  }
+}

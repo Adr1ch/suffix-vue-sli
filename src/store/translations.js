@@ -19,7 +19,7 @@ export default {
   actions: {
     getTrans({ commit }) {
       return new Promise((resolve) => {
-        http.get('/api/content/suffix/translations').then((res) => {
+        http.get('/api/content/newsuffix/translations').then((res) => {
           commit(mutt.SET_TRANS, res.data.items[0].data.list);
           resolve(res.data);
         });

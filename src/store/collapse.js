@@ -18,7 +18,7 @@ export default {
     getCollapse({ commit, state }) {
       return new Promise((resolve) => {
         if (state.collapse.length) resolve(state.collapse);
-        http.get('/api/content/suffix/collapse').then((res) => {
+        http.get('/api/content/newsuffix/collapse').then((res) => {
           commit(mutt.SET_COLLAPSE, res.data.items);
           resolve(res.data.items);
         });

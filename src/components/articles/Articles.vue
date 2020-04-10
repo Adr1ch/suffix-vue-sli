@@ -7,25 +7,31 @@
       <div class="content-wrap">
         <div class="btn-wrap">
           <ul class="list">
-            <li class="item">
+            <!-- <li class="item">
               <button class="button"
                 @click="showAll">
                 {{trans.other.all | toUpper}}
               </button>
-            </li>
-            <li class="item" v-for="i in tags" :key="i.id">
+            </li> -->
+            <!-- <li class="item" v-for="i in tags" :key="i.id">
               <button class="button"
                 @click="showCategory(i.data.name)">
                 {{i.data.name | toUpper}}
               </button>
-            </li>
+            </li> -->
           </ul>
+          <router-link
+            class="button"
+            :to="{ path: 'blog', query: { tag: tag.data.name } }"
+            :key="tag.id"
+            v-for="tag in tags">
+              {{tag.data.name}}
+          </router-link>
         </div>
-        <div class="articles-wrap" v-if="isLoad">
+        <!-- <div class="articles-wrap" v-if="isLoad">
           <GlobalList v-for="tag in categories"
           :tag="tag"
           :top="3"
-          :skip="1"
           :key="tag.id">
           </GlobalList>
         </div>
@@ -33,9 +39,12 @@
           <ul class="art-list">
             <GlobalItem v-for="item in articles" :key="item.id" :item="item"></GlobalItem>
           </ul>
-        </div>
-        <ul class="current" v-if="isCurr">
-          <li class="item_" v-for="item in currCategory[0]" :key="item.id" :item="item">
+        </div> -->
+        <ul class="current">
+          <li class="item_"
+            v-for="item in currentCategory"
+            :key="item.id"
+            :item="item">
             <div class="photo-wrap">
               <img class="photo" :src="item.data.image" alt="">
             </div>
@@ -53,6 +62,7 @@
             </div>
           </li>
         </ul>
+        <pre>{{ currentCategory }}</pre>
       </div>
     </div>
   </div>
@@ -64,6 +74,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+// import store from '@/store';
 
 export default {
   data() {
@@ -76,38 +87,51 @@ export default {
     };
   },
   created() {
-    this.$store.dispatch('blog/getArticlesByTag').then(() => {
-      this.isLoad = true;
-    });
-    this.$store.dispatch('translations/getTrans');
+    // this.$store.dispatch('blog/getArticlesByTag').then(() => {
+    //   this.isLoad = true;
+    // });
     this.$store.dispatch('blog/getArticles');
+    // this.getCurrentCategory().then(() => {
+    //   const el = this.tags.find((i) => i.data.name === this.$route.query.tag);
+    //   const tagId = el && el.id ? el.id : null;
+    //   this.getCurrentCategory(tagId);
+    // });
   },
   computed: {
     ...mapState('translations', ['trans']),
-    ...mapState('blog', ['tags', 'articles', 'filtArticles']),
+    ...mapState('blog', ['tags', 'articles', 'filtArticles', 'currentCategory']),
   },
   methods: {
     ...mapActions('blog', ['getArticlesByTag']),
-    ...mapActions('blog', ['getArticlesByTagName']),
-    showCategory(tagName) {
-      this.isLoad = false;
-      this.isAll = false;
-      this.isCurr = true;
-      this.getArticlesByTagName().then(() => {
-        const el = this.tags.find((i) => i.data.name === tagName);
-        const tagId = el && el.id ? el.id : null;
-        this.getArticlesByTagName({
-          tagId,
-        }).then((r) => {
-          this.currCategory = r;
-        });
-      });
-    },
+    // ...mapActions('blog', ['getArticlesByTagName']),
+    ...mapActions('blog', ['getCurrentCategory']),
+    // showCategory(tagName) {
+    //   this.isLoad = false;
+    //   this.isAll = false;
+    //   this.isCurr = true;
+    //   this.getArticlesByTagName().then(() => {
+    //     const el = this.tags.find((i) => i.data.name === tagName);
+    //     const tagId = el && el.id ? el.id : null;
+    //     this.getArticlesByTagName({
+    //       tagId,
+    //     }).then((r) => {
+    //       this.currCategory = r;
+    //     });
+    //   });
+    // },
     showAll() {
       this.isLoad = false;
       this.isAll = true;
       this.isCurr = false;
     },
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.getCurrentCategory().then(() => {
+      const el = this.tags.find((i) => i.data.name === to.query.tag);
+      const tagId = el && el.id ? el.id : null;
+      this.getCurrentCategory(tagId);
+    });
+    next();
   },
 };
 </script>
