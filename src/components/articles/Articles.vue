@@ -1,7 +1,7 @@
 <template>
   <div class="articles">
     <div class="title-wrap">
-      <h2 class="title">ARTICLES</h2>
+      <h2 class="title">{{trans.other.articles | toUpper}}</h2>
     </div>
     <div class="container">
       <div class="content-wrap">
@@ -22,7 +22,7 @@
                 :to="{ path: 'blog', query: { tag: tag.data.name } }"
                 @click.native="showCategory"
               >
-                  {{$t(tag.data.name) | toUpper}}
+                {{$t(tag.data.name) | toUpper}}
               </router-link>
             </li>
           </ul>

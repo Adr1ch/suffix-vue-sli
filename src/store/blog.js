@@ -150,29 +150,36 @@ export default {
     //
     //
     //
-    // setArticlesWithTag({ commit, state }) {
-    //   return Promise.all(state.tags.map((tag, index) => new Promise((resolve, reject) => {
-    //     const settingObj = {
-    //       params: {
-    //         $filter: `data/reference/iv eq '${tag.id}'`,
-    //         $top: index === 1 ? 6 : 3,
-    //       },
-    //     };
-    //     http.get('/api/content/suffix/articles', settingObj).then((res) => {
-    //       commit(mutt.SET_ARTICLES_FOR_HOME, {
-    //         data: res.data.items,
-    //         tag: tag.data.name,
-    //       });
-    //       resolve(res.data);
-    //     },
-    //     ({ response }) => {
-    //       reject(response.data);
-    //     });
-    //   })));
-    // },
-    // getArticlesForHomePage({ dispatch }) {
-    //   return dispatch('getTags').then(() => dispatch('setArticlesWithTag'));
-    // },
+    setArticlesWithTag({ commit, state }) {
+      return Promise.all(state.tags.map((tag, index) => new Promise((resolve, reject) => {
+        const settingObj = {
+          params: {
+            $filter: `data/reference/iv eq '${tag.id}'`,
+            $top: index === 1 ? 6 : 3,
+          },
+        };
+        http.get('/api/content/newsuffix/articles', settingObj).then((res) => {
+          commit(mutt.SET_ARTICLES_FOR_HOME, {
+            data: res.data.items,
+            tag: tag.data.name,
+          });
+          resolve(res.data);
+        },
+        ({ response }) => {
+          reject(response.data);
+        });
+      })));
+    },
+    getArticlesForHomePage({ dispatch }) {
+      return dispatch('getTags').then(() => dispatch('setArticlesWithTag'));
+    },
+    //
+    //
+    //
+    //
+    //
+    //
+    //
     getCurrentCategory({ commit, dispatch }, tagId) {
       return Promise.all([
         new Promise((resolve, reject) => {

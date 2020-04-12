@@ -2,12 +2,12 @@
   <section class="blog">
     <div class="container">
       <div class="wrap">
-        <h3 class="title">{{categories[0] | toUpper}}</h3>
+        <h3 class="title">{{$t(`tags.${categories[0]}`) | toUpper}}</h3>
         <GlobalList :tag="categories[0]" v-if="isLoad" :top="3"></GlobalList>
         <router-link to="/blog">
           <GlobalBtn :btnTxt="trans.other.all"></GlobalBtn>
         </router-link>
-        <h3 class="title">{{categories[1] | toUpper}}</h3>
+        <h3 class="title">{{$t(`tags.${categories[1]}`) | toUpper}}</h3>
         <GlobalList :tag="categories[1]" v-if="isLoad" :top="3"></GlobalList>
         <router-link to="/blog">
           <GlobalBtn :btnTxt="trans.other.all"></GlobalBtn>

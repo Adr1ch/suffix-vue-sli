@@ -58,3 +58,28 @@
   letter-spacing: 4px;
   margin-bottom: 20px;
 }
+
+@include respond-below(xs) {
+  .photo-section {
+    width: 100%;
+  }
+
+  .default-section {
+    height: 400px;
+    width: 0;
+  }
+
+  .clients-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .title {
+    @include fontStyles(normal, 800, 20px, 20px, var(--c-txt-clients));
+  }
+}

@@ -35,4 +35,9 @@ export default {
       });
     },
   },
+  getters: {
+    isLogin(state) {
+      return !!state.token && localStorage.token;
+    },
+  },
 };

@@ -7,3 +7,11 @@
   flex-wrap: wrap;
   margin: 0 -10px;
 }
+
+@include respond-below(xs)  {
+  .list {
+    flex-wrap: nowrap;
+    max-width: 100vw;
+    overflow: auto;
+  }
+}

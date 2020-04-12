@@ -43,3 +43,28 @@
   font-family: var(--main-ff);
   cursor: pointer;
 }
+
+@include respond-below(xs) {
+  .subs {
+    flex-wrap: wrap;
+  }
+
+  .title {
+    @include fontStyles(normal, 500, 18px, 27px, var(--c-txt));
+  }
+
+  .photo-section {
+    width: 100%;
+  }
+
+  .photo {
+    top: 0;
+    left: 0;
+    position: unset;
+  }
+
+  .info-section {
+    width: 100%;
+    padding: 40px 60px;
+  }
+}

@@ -44,4 +44,8 @@
     padding: 10px 20px;
     @include fontStyles(normal, 300, 12px, 20px, var(--c-dark));
   }
+
+  .txt {
+    @include fontStyles(normal, 300, 12px, 20px, var(--c-brand));
+  }
 }

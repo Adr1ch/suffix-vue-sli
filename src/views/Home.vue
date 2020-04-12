@@ -31,7 +31,9 @@ export default {
     Collapse,
   },
   // created() {
-  //   this.$store.dispatch('blog/getArticlesForHomePage');
+  //   this.$store.dispatch('blog/getArticlesForHomePage').then(() => {
+  //     this.isReady = true;
+  //   });
   // },
   // computed: {
   //   ...mapState('blog', ['articlesForHomePage']),

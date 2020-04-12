@@ -5,3 +5,10 @@
   justify-content: center;
   align-items: center;
 }
+
+@include respond-below(xs) {
+  .item {
+    height: auto;
+    padding: 10px;
+  }
+}
