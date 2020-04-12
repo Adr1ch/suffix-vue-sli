@@ -3,8 +3,8 @@
     <div class="container">
       <div class="wrap">
         <h3 class="title">{{$t(`tags.${categories[0]}`) | toUpper}}</h3>
-        <BlogList :tag="categories[0]" :top="2" :skip="3"></BlogList>
-        <GlobalList :tag="categories[0]" v-if="isLoad" :top="3" :skip="0"></GlobalList>
+        <BlogList :tag="categories[0]"></BlogList>
+        <GlobalList :tag="categories[0]"></GlobalList>
         <router-link to="/blog">
           <GlobalBtn :btnTxt="$t(trans.other.all)"></GlobalBtn>
         </router-link>
@@ -25,20 +25,13 @@ export default {
   data() {
     return {
       categories: ['lifestyle'],
-      isLoad: false,
     };
   },
   components: {
     BlogList,
   },
   computed: {
-    ...mapState('blog', ['tags', 'filtArticles']),
     ...mapState('translations', ['trans']),
-  },
-  created() {
-    this.$store.dispatch('blog/getArticlesByTag').then(() => {
-      this.isLoad = true;
-    });
   },
 };
 </script>

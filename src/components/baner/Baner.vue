@@ -1,20 +1,20 @@
 <template>
   <section class="baner">
     <div class="photo-section">
-      <img class="photo" :src="currArticle[0][0].data.image" alt="">
+      <img class="photo" :src="filtArticles.baner.image" alt="">
     </div>
     <div class="info-section">
       <div class="data">
-        <p class="dmy">{{ currArticle[0][0].data.date | formatDate }}</p>
-        <router-link :to="'/blog/' + currArticle[0][0].data.slug" class="link">
-          {{$t(`tags.${getLink(currArticle[0][0].data.reference)}`)}}
+        <p class="dmy">{{ filtArticles.baner.date | formatDate }}</p>
+        <router-link :to="'/blog/' + filtArticles.baner.slug" class="link">
+          {{$t(`tags.${getLink(filtArticles.baner.reference)}`)}}
         </router-link>
       </div>
       <div class="ti">
-        <h2 class="title">{{ currArticle[0][0].data.title }}</h2>
-        <p class="info" v-html="currArticle[0][0].data.content"></p>
+        <h2 class="title">{{ filtArticles.baner.title }}</h2>
+        <p class="info" v-html="filtArticles.baner.content"></p>
       </div>
-      <router-link :to="'/blog/' + currArticle[0][0].data.slug" class="btn">
+      <router-link :to="'/blog/' + filtArticles.baner.slug" class="btn">
         {{$t(trans.other.more) | toUpper}}
       </router-link>
     </div>
@@ -27,44 +27,27 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import { mutt } from '@/store/blog';
 
 export default {
-  props: {
-    tag: {
-      type: String,
-    },
-    top: {
-      type: Number,
-    },
-    skip: {
-      type: Number,
-    },
-  },
-  data() {
-    return {
-      currArticle: [],
-    };
-  },
   computed: {
     ...mapState('translations', ['trans']),
-    ...mapState('blog', ['tags']),
+    ...mapState('blog', ['filtArticles']),
   },
   created() {
-    this.getArticlesByTagName().then(() => {
-      const el = this.tags.find((i) => i.data.name === this.tag);
-      const tagId = el && el.id ? el.id : null;
-      this.getArticlesByTagName({
-        tagId,
-        toSkip: this.skip,
-        toTop: this.top,
-      }).then((r) => {
-        if (this.currArticle.length) return;
-        this.currArticle = r;
+    this.getSukaBliat({
+      tag: 'lifestyle',
+      skip: 5,
+      top: 1,
+    }).then((res) => {
+      this.$store.commit(`blog/${mutt.SET_WTF}`, {
+        value: res[0].data,
+        mark: 'baner',
       });
     });
   },
   methods: {
-    ...mapActions('blog', ['getArticlesByTagName']),
+    ...mapActions('blog', ['getSukaBliat']),
   },
 };
 </script>

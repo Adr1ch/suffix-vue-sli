@@ -2,7 +2,7 @@
   <div class="wrap">
     <ul class="list">
       <BlogItem
-      v-for="item in currArticle[0]"
+      v-for="item in filtArticles.double"
       :item="item"
       :key="item.id">
       </BlogItem>
@@ -17,46 +17,29 @@
 <script>
 import BlogItem from '@/components/blog/blog-item/BlogItem.vue';
 import { mapState, mapActions } from 'vuex';
+import { mutt } from '@/store/blog';
 
 export default {
-  data() {
-    return {
-      currArticle: [],
-    };
-  },
-  props: {
-    tag: {
-      type: String,
-    },
-    top: {
-      type: Number,
-    },
-    skip: {
-      type: Number,
-    },
-  },
   components: {
     BlogItem,
   },
   computed: {
-    ...mapState('blog', ['tags']),
+    ...mapState('blog', ['filtArticles']),
   },
   created() {
-    this.getArticlesByTagName().then(() => {
-      const el = this.tags.find((i) => i.data.name === this.tag);
-      const tagId = el && el.id ? el.id : null;
-      this.getArticlesByTagName({
-        tagId,
-        toSkip: this.skip,
-        toTop: this.top,
-      }).then((r) => {
-        if (this.currArticle.length) return;
-        this.currArticle = r;
+    this.getSukaBliat({
+      tag: 'lifestyle',
+      skip: 3,
+      top: 2,
+    }).then((res) => {
+      this.$store.commit(`blog/${mutt.SET_WTF}`, {
+        value: res,
+        mark: 'double',
       });
     });
   },
   methods: {
-    ...mapActions('blog', ['getArticlesByTagName']),
+    ...mapActions('blog', ['getSukaBliat']),
   },
 };
 </script>

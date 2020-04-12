@@ -16,6 +16,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import { mutt } from '@/store/blog';
 
 export default {
   props: {
@@ -30,20 +31,22 @@ export default {
     },
   },
   computed: {
-    ...mapState('blog', ['filtArticles', 'tags', 'articlesForHomePage']),
+    ...mapState('blog', ['filtArticles']),
   },
   created() {
-    const el = this.tags.find((i) => i.data.name === this.tag);
-    const tagId = el && el.id ? el.id : null;
-    this.getArticlesByTag({
-      tagId,
+    this.getSukaBliat({
       tag: this.tag,
-      toSkip: this.skip,
-      toTop: this.top,
+      skip: 0,
+      top: 3,
+    }).then((res) => {
+      this.$store.commit(`blog/${mutt.SET_WTF}`, {
+        value: res,
+        mark: this.tag,
+      });
     });
   },
   methods: {
-    ...mapActions('blog', ['getArticlesByTag']),
+    ...mapActions('blog', ['getSukaBliat']),
   },
 };
 </script>

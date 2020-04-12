@@ -3,12 +3,12 @@
     <div class="container">
       <div class="wrap">
         <h3 class="title">{{$t(`tags.${categories[0]}`) | toUpper}}</h3>
-        <GlobalList :tag="categories[0]" v-if="isLoad" :top="3"></GlobalList>
+        <GlobalList :tag="categories[0]"></GlobalList>
         <router-link to="/blog">
           <GlobalBtn :btnTxt="trans.other.all"></GlobalBtn>
         </router-link>
         <h3 class="title">{{$t(`tags.${categories[1]}`) | toUpper}}</h3>
-        <GlobalList :tag="categories[1]" v-if="isLoad" :top="3"></GlobalList>
+        <GlobalList :tag="categories[1]"></GlobalList>
         <router-link to="/blog">
           <GlobalBtn :btnTxt="trans.other.all"></GlobalBtn>
         </router-link>
@@ -27,14 +27,8 @@ import { mapState } from 'vuex';
 export default {
   data() {
     return {
-      isLoad: false,
       categories: ['interviews', 'news'],
     };
-  },
-  created() {
-    this.$store.dispatch('blog/getArticlesByTag').then(() => {
-      this.isLoad = true;
-    });
   },
   computed: {
     ...mapState('translations', ['trans']),

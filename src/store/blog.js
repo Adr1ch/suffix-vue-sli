@@ -6,9 +6,8 @@ const mutt = {
   SET_ARTICLE: 'SET_ARTICLE',
   SET_LOADED: 'SET_LOADED',
   SET_TAGS: 'SET_TAGS',
-  SET_ARTICLES_BY_TAGS: 'SET_ARTICLES_BY_TAG',
-  SET_ARTICLES_FOR_HOME: 'SET_ARTICLES_FOR_HOME',
   SET_CURRENT_CATEGORY: 'SET_CURRENT_CATEGORY',
+  SET_WTF: 'SET_WTF',
 };
 
 export { mutt };
@@ -21,15 +20,14 @@ export default {
     filtArticles: {},
     article: [],
     loaded: false,
-    articlesForHomePage: {},
     currentCategory: [],
   },
   mutations: {
+    [mutt.SET_WTF](state, { value, mark }) {
+      Vue.set(state.filtArticles, mark, value);
+    },
     [mutt.SET_TAGS](state, tags) {
       state.tags = tags;
-    },
-    [mutt.SET_ARTICLES_BY_TAGS](state, { data, tag }) {
-      if (tag) Vue.set(state.filtArticles, tag, data);
     },
     [mutt.SET_ARTICLES](state, articles) {
       state.articles = articles;
@@ -46,16 +44,12 @@ export default {
     [mutt.SET_CURRENT_CATEGORY](state, value) {
       state.currentCategory = value;
     },
-    [mutt.SET_ARTICLES_FOR_HOME](state, { data, tag }) {
-      Vue.set(state.articlesForHomePage, tag, data);
-    },
   },
   actions: {
     getTags({ commit, state }) {
       if (state.tags.length) {
         return true;
       }
-      commit(mutt.SET_LOADED);
       return new Promise((resolve) => {
         http.get('/api/content/newsuffix/categories').then((res) => {
           commit(mutt.SET_TAGS, res.data.items);
@@ -63,8 +57,6 @@ export default {
         });
       });
     },
-    //
-    //
     //
     getArticles({ commit, dispatch }) {
       Promise.all([
@@ -81,8 +73,6 @@ export default {
       ]);
     },
     //
-    //
-    //
     getArticleBySlug({ commit }, slug) {
       return new Promise((resolve) => {
         http.get('/api/content/newsuffix/articles', {
@@ -96,89 +86,23 @@ export default {
       });
     },
     //
-    //
-    //
-    getArticlesByTag({ commit, dispatch }, {
-      tagId, tag, toSkip, toTop,
-    } = { tagId: '', toSkip: 0, toTop: 3 }) {
-      return Promise.all([
-        new Promise((resolve, reject) => {
+    getSukaBliat({ dispatch, state }, { tag, skip, top } = { tag: '', skip: 0, top: 3 }) {
+      return dispatch('getTags').then(() => {
+        const currTag = state.tags.find((i) => i.data.name === tag);
+        const tagId = currTag && currTag.id ? currTag.id : null;
+        return new Promise((resolve) => {
           http.get('/api/content/newsuffix/articles', {
             params: {
               $filter: `data/reference/iv eq '${tagId}'`,
-              $skip: toSkip,
-              $top: toTop,
-            },
-          }).then((res) => {
-            commit(mutt.SET_ARTICLES_BY_TAGS, {
-              data: res.data.items,
-              tag,
-            });
-            resolve(res.data);
-          },
-          ({ response }) => {
-            reject(response.data);
-          });
-        }),
-        dispatch('getTags'),
-      ]);
-    },
-    //
-    //
-    //
-    getArticlesByTagName({ dispatch }, {
-      tagId, toSkip, toTop,
-    } = { tagId: '', toSkip: 0, toTop: 3 }) {
-      return Promise.all([
-        new Promise((resolve, reject) => {
-          http.get('/api/content/newsuffix/articles', {
-            params: {
-              $filter: `data/reference/iv eq '${tagId}'`,
-              $skip: toSkip,
-              $top: toTop,
+              $skip: skip,
+              $top: top,
             },
           }).then((res) => {
             resolve(res.data.items);
-          },
-          ({ response }) => {
-            reject(response.data);
           });
-        }),
-        dispatch('getTags'),
-      ]);
-    },
-    //
-    //
-    //
-    setArticlesWithTag({ commit, state }) {
-      return Promise.all(state.tags.map((tag, index) => new Promise((resolve, reject) => {
-        const settingObj = {
-          params: {
-            $filter: `data/reference/iv eq '${tag.id}'`,
-            $top: index === 1 ? 6 : 3,
-          },
-        };
-        http.get('/api/content/newsuffix/articles', settingObj).then((res) => {
-          commit(mutt.SET_ARTICLES_FOR_HOME, {
-            data: res.data.items,
-            tag: tag.data.name,
-          });
-          resolve(res.data);
-        },
-        ({ response }) => {
-          reject(response.data);
         });
-      })));
+      });
     },
-    getArticlesForHomePage({ dispatch }) {
-      return dispatch('getTags').then(() => dispatch('setArticlesWithTag'));
-    },
-    //
-    //
-    //
-    //
-    //
-    //
     //
     getCurrentCategory({ commit, dispatch }, tagId) {
       return Promise.all([
@@ -199,20 +123,8 @@ export default {
       ]);
     },
     //
-    //
-    //
-    //
-    //
-    //
-    //
   },
   getters: {
-    revArt(state) {
-      return state.articles.reverse();
-    },
-    getFirstArt(state) {
-      return state.articlesForHomePage.lifestyle[5];
-    },
     getTagById(state) {
       return (id) => state.tags.find((i) => i.id === id);
     },

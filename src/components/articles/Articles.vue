@@ -30,7 +30,6 @@
         <div class="articles-wrap" v-if="isLoad">
           <GlobalList v-for="tag in categories"
           :tag="tag"
-          :top="3"
           :key="tag.id">
           </GlobalList>
         </div>
@@ -73,28 +72,22 @@
 </style>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
   data() {
     return {
-      isLoad: false,
+      isLoad: true,
       isAll: false,
       isCurr: false,
       categories: ['lifestyle', 'interviews', 'news'],
     };
-  },
-  created() {
-    this.$store.dispatch('blog/getArticlesByTag').then(() => {
-      this.isLoad = true;
-    });
   },
   computed: {
     ...mapState('translations', ['trans']),
     ...mapState('blog', ['tags', 'articles', 'currentCategory']),
   },
   methods: {
-    ...mapActions('blog', ['getArticlesByTag']),
     showCategory() {
       this.isLoad = false;
       this.isAll = false;
