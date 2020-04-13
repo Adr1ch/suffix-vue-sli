@@ -5,7 +5,9 @@
         <div class="logo-wrap">
           <div class="dl-wrap">
             <p class="date">{{ item[0].data.date | formatDate }}</p>
-            <a href="" class="link">{{ $t(`tags.${getLink(item[0].data.reference)}`) }}</a>
+            <a href="" class="link">
+              {{ $t(`tags.${getLink(item[0].data.reference)}`)  | toUpper }}
+            </a>
           </div>
           <p class="sub-title">{{ item[0].data.title }}</p>
         </div>

@@ -13,7 +13,7 @@ export default {
   mutations: {
     [mutt.SET_TRANS](state, trans) {
       state.trans = trans;
-      i18n.setLocalMessage(i18n.locale, trans[0].data.list);
+      i18n.setLocaleMessage(i18n.locale, trans);
     },
   },
   actions: {

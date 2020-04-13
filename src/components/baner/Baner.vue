@@ -7,7 +7,7 @@
       <div class="data">
         <p class="dmy">{{ filtArticles.baner.date | formatDate }}</p>
         <router-link :to="'/blog/' + filtArticles.baner.slug" class="link">
-          {{$t(`tags.${getLink(filtArticles.baner.reference)}`)}}
+          {{$t(`tags.${getLink(filtArticles.baner.reference)}`) | toUpper}}
         </router-link>
       </div>
       <div class="ti">

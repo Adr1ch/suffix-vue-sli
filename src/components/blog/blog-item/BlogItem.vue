@@ -7,7 +7,7 @@
       <div class="date">
         <p class="dmy">{{item.data.date | formatDate}}</p>
         <router-link :to="'/blog/' + item.data.slug" class="link">
-          {{$t(`tags.${getLink(item.data.reference)}`)}}
+          {{$t(`tags.${getLink(item.data.reference)}`)  | toUpper}}
         </router-link>
       </div>
       <div class="title-info">
