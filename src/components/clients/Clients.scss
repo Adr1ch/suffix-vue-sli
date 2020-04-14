@@ -52,6 +52,7 @@
 }
 
 .title {
+  min-width: 300px;
   @include fontStyles(normal, 800, 24px, 207.9%, var(--c-txt-clients));
   font-family: var(--main-ff);
   text-transform: uppercase;
@@ -80,7 +81,20 @@
   }
 
   .title {
+    text-align: center;
     min-width: 210px;
     @include fontStyles(normal, 800, 20px, 20px, var(--c-txt-clients));
+  }
+}
+
+@include respond-below(sm) {
+  .default-section {
+    height: 400px;
+  }
+
+  .title {
+    min-width: 300px;
+    @include fontStyles(normal, 800, 19px, 20px, var(--c-txt-clients));
+    margin-bottom: 10px;
   }
 }

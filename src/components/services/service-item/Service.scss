@@ -49,9 +49,10 @@
 
   .title {
     @include fontStyles(normal, 500, 14px, 20px, var(--c-dark));
+    margin: 10px 0;
   }
 
   .info {
-    @include fontStyles(normal, normal, 12px, 20px, var(--c-dark));
+    @include fontStyles(normal, normal, 12px, 17px, var(--c-dark));
   }
 }

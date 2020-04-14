@@ -64,7 +64,8 @@
 
 @include respond-below(sm) {
   .title {
-    @include fontStyles(normal, 500, 16px, 25px, var(--c-brand));
+    @include fontStyles(normal, 500, 16px, 18px, var(--c-brand));
+    margin: 15px 0;
   }
 
   .info {

@@ -95,10 +95,6 @@
     line-height: 18px;
   }
 
-  .dmy {
-    margin-bottom: 20px;
-  }
-
   .title {
     font-size: 18px;
     line-height: 27px;
@@ -112,14 +108,31 @@
 
 @include respond-below(sm) {
   .info-section {
-    padding: 60px 20px;
+    padding: 50px 20px;
   }
 
   .info {
-    @include fontStyles(normal, 300, 13px, 21px, var(--c-txt));
+    @include fontStyles(normal, 300, 12px, 17px, var(--c-txt));
   }
 
   .ti {
     margin: 30px 0;
+  }
+
+  .title {
+    @include fontStyles(normal, 500, 20px, 32px, var(--c-txt));
+  }
+
+  .dmy {
+    @include fontStyles(normal, 300, 13px, 10px, var(--c-txt));
+    letter-spacing: 4px;
+  }
+
+  .link {
+    @include fontStyles(normal, 300, 13px, 10px, var(--c-txt));
+  }
+
+  .btn {
+    padding: 15px;
   }
 }

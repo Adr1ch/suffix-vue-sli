@@ -145,3 +145,26 @@
     padding: 20px 0 0 0;
   }
 }
+
+@include respond-below(sm) {
+  .title_ {
+    @include fontStyles(normal, 500, 22px, 20px, var(--c-brand));
+    margin: 15px 0;
+  }
+
+  .info {
+    @include fontStyles(normal, 300, 14px, 17px, var(--c-brand));
+  }
+
+  .content-wrap {
+    padding: 40px 0 40px 0;
+  }
+
+  .current {
+    padding: 30px 0;
+  }
+
+  .articles-wrap {
+    padding: 0;
+  }
+}

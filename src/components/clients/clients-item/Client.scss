@@ -12,3 +12,10 @@
     padding: 10px;
   }
 }
+
+@include respond-below(sm) {
+  .item {
+    height: auto;
+    padding: 10px;
+  }
+}
