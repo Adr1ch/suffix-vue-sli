@@ -7,7 +7,6 @@
 <script>
 import Articles from '@/components/articles/Articles.vue';
 import { mapActions } from 'vuex';
-// import store from '@/store';
 import { mutt } from '@/store/blog';
 
 export default {
@@ -30,7 +29,6 @@ export default {
   },
   created() {
     this.$store.dispatch('blog/getTags');
-    console.log(this.$route.params);
     if (this.$route.query.tag) {
       this.getSukaBliat({
         tag: this.$route.query.tag,
