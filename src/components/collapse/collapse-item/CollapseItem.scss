@@ -49,3 +49,19 @@
     @include fontStyles(normal, 300, 12px, 20px, var(--c-brand));
   }
 }
+
+@include respond-below(sm) {
+  .btn {
+    border: 3px solid var(--c-dark);
+    padding: 15px 25px;
+    @include fontStyles(normal, 300, 16px, 20px, var(--c-dark));
+  }
+
+  .txt {
+    @include fontStyles(normal, 300, 14px, 20px, var(--c-brand));
+  }
+
+  .item {
+    margin: 5px;
+  }
+}

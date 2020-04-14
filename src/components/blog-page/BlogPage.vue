@@ -5,9 +5,9 @@
         <div class="logo-wrap">
           <div class="dl-wrap">
             <p class="date">{{ item[0].data.date | formatDate }}</p>
-            <a href="" class="link">
+            <router-link :to="'/blog'" class="link">
               {{ $t(`tags.${getLink(item[0].data.reference)}`)  | toUpper }}
-            </a>
+            </router-link>
           </div>
           <p class="sub-title">{{ item[0].data.title }}</p>
         </div>
@@ -15,7 +15,6 @@
     </div>
     <div class="blog-content">
       <div class="container">
-        <h3 class="title"></h3>
         <p class="content" v-html="item[0].data.content"></p>
       </div>
     </div>

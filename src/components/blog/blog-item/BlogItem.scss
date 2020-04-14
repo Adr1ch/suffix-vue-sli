@@ -61,3 +61,13 @@
     @include fontStyles(normal, 500, 14px, 20px, var(--c-brand));
   }
 }
+
+@include respond-below(sm) {
+  .title {
+    @include fontStyles(normal, 500, 16px, 25px, var(--c-brand));
+  }
+
+  .info {
+    @include fontStyles(normal, 500, 14px, 20px, var(--c-brand));
+  }
+}

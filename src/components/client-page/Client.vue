@@ -10,7 +10,7 @@
     </div>
     <div class="client-content">
       <div class="container">
-        <p class="content" v-html="item[0].data.content"></p>
+        <div class="content" v-html="item[0].data.content"></div>
       </div>
     </div>
   </div>

@@ -1,8 +1,12 @@
 .wrap {
-  padding: 40px 0;
+  padding: 20px 0;
 }
 
 .title {
   font-family: var(--main-ff);
   @include fontStyles(normal, 500, 18px, 27px, var(--c-brand));
+}
+
+.item {
+  margin: 20px 0;
 }

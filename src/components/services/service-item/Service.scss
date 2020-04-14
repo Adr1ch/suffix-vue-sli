@@ -41,3 +41,17 @@
     @include fontStyles(normal, normal, 14px, 20px, var(--c-dark));
   }
 }
+
+@include respond-below(sm) {
+  .item {
+    padding: 10px;
+  }
+
+  .title {
+    @include fontStyles(normal, 500, 14px, 20px, var(--c-dark));
+  }
+
+  .info {
+    @include fontStyles(normal, normal, 12px, 20px, var(--c-dark));
+  }
+}

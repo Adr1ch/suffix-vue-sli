@@ -47,9 +47,4 @@
   .content {
     @include fontStyles(normal, normal, 12px, 163.35%, var(--c-dark));
   }
-
-  .content p img {
-    display: block;
-    width: 100%;
-  }
 }

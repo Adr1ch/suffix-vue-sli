@@ -71,4 +71,13 @@
   .list {
     flex-wrap: nowrap;
   }
+
+  .logo {
+    display: block;
+    width: 100%;
+  }
+
+  .title {
+    @include fontStyles(normal, bold, 18px, 25px, var(--c-dark));
+  }
 }

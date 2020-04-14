@@ -69,3 +69,14 @@
     padding: 40px 60px;
   }
 }
+
+@include respond-below(sm) {
+  .info-section {
+    padding: 90px 40px;
+  }
+
+  .title {
+    @include fontStyles(normal, 500, 18px, 27px, var(--c-txt));
+    margin: 0;
+  }
+}
