@@ -6,8 +6,8 @@ const mutt = {
   SET_ARTICLE: 'SET_ARTICLE',
   SET_LOADED: 'SET_LOADED',
   SET_TAGS: 'SET_TAGS',
-  SET_CURRENT_CATEGORY: 'SET_CURRENT_CATEGORY',
   SET_WTF: 'SET_WTF',
+  SET_BLOG_PAGE: 'SET_BLOG_PAGE',
 };
 
 export { mutt };
@@ -18,13 +18,16 @@ export default {
     articles: [],
     tags: [],
     filtArticles: {},
+    blogPage: {},
     article: [],
     loaded: false,
-    currentCategory: [],
   },
   mutations: {
     [mutt.SET_WTF](state, { value, mark }) {
       Vue.set(state.filtArticles, mark, value);
+    },
+    [mutt.SET_BLOG_PAGE](state, { value, mark }) {
+      Vue.set(state.blogPage, mark, value);
     },
     [mutt.SET_TAGS](state, tags) {
       state.tags = tags;
@@ -40,9 +43,6 @@ export default {
     },
     [mutt.SET_LOADED](state) {
       state.loaded = true;
-    },
-    [mutt.SET_CURRENT_CATEGORY](state, value) {
-      state.currentCategory = value;
     },
   },
   actions: {
@@ -86,7 +86,7 @@ export default {
       });
     },
     //
-    getSukaBliat({ dispatch, state }, { tag, skip, top } = { tag: '', skip: 0, top: 3 }) {
+    getSukaBliat({ dispatch, state }, { tag, skip, top }) {
       return dispatch('getTags').then(() => {
         const currTag = state.tags.find((i) => i.data.name === tag);
         const tagId = currTag && currTag.id ? currTag.id : null;
@@ -102,25 +102,6 @@ export default {
           });
         });
       });
-    },
-    //
-    getCurrentCategory({ commit, dispatch }, tagId) {
-      return Promise.all([
-        new Promise((resolve, reject) => {
-          http.get('/api/content/newsuffix/articles', {
-            params: {
-              $filter: `data/reference/iv eq '${tagId}'`,
-            },
-          }).then((res) => {
-            commit(mutt.SET_CURRENT_CATEGORY, res.data.items);
-            resolve(res.data);
-          },
-          ({ response }) => {
-            reject(response.data);
-          });
-        }),
-        dispatch('getTags'),
-      ]);
     },
     //
   },

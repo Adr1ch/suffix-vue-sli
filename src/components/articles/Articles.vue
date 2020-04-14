@@ -9,9 +9,8 @@
           <ul class="list">
             <li class="item">
               <router-link
-                @click.native="showAll"
                 class="button"
-                :to="{ path: 'blog', query: { tag: 'all' } }"
+                :to="{ path: 'blog', props: true }"
               >
                 {{trans.other.all | toUpper}}
               </router-link>
@@ -19,29 +18,23 @@
             <li class="item" v-for="tag in tags" :key="tag.id">
               <router-link
                 class="button"
-                :to="{ path: 'blog', query: { tag: tag.data.name } }"
-                @click.native="showCategory"
+                :to="{ path: 'blog', query: { tag: tag.data.name }, props: false }"
               >
                 {{$t(`tags.${tag.data.name}`) | toUpper}}
               </router-link>
             </li>
           </ul>
         </div>
-        <div class="articles-wrap" v-if="isLoad">
+        <div class="articles-wrap" v-if="!this.$route.query.tag">
           <GlobalList v-for="tag in categories"
           :tag="tag"
           :key="tag.id">
           </GlobalList>
         </div>
-        <div class="all-art" v-if="isAll">
-          <ul class="art-list">
-            <GlobalItem v-for="item in articles" :key="item.id" :item="item"></GlobalItem>
-          </ul>
-        </div>
-        <div class="current-wrap">
+        <div class="current-wrap" v-if="blogPage[this.$route.query.tag]">
           <ul class="current">
             <li class="item_"
-              v-for="item in currentCategory"
+              v-for="item in blogPage[this.$route.query.tag]"
               :key="item.id"
               :item="item">
               <div class="photo-wrap">
@@ -77,27 +70,12 @@ import { mapState } from 'vuex';
 export default {
   data() {
     return {
-      isLoad: true,
-      isAll: false,
-      isCurr: false,
       categories: ['lifestyle', 'interviews', 'news'],
     };
   },
   computed: {
     ...mapState('translations', ['trans']),
-    ...mapState('blog', ['tags', 'articles', 'currentCategory']),
-  },
-  methods: {
-    showCategory() {
-      this.isLoad = false;
-      this.isAll = false;
-      this.isCurr = true;
-    },
-    showAll() {
-      this.isLoad = false;
-      this.isAll = true;
-      this.isCurr = false;
-    },
+    ...mapState('blog', ['tags', 'blogPage']),
   },
 };
 </script>

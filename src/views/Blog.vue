@@ -6,27 +6,41 @@
 
 <script>
 import Articles from '@/components/articles/Articles.vue';
-import { mapActions, mapState } from 'vuex';
+import { mapActions } from 'vuex';
 // import store from '@/store';
+import { mutt } from '@/store/blog';
 
 export default {
   components: {
     Articles,
   },
   methods: {
-    ...mapActions('blog', ['getCurrentCategory']),
-  },
-  computed: {
-    ...mapState('blog', ['tags']),
+    ...mapActions('blog', ['getSukaBliat']),
   },
   beforeRouteUpdate(to, from, next) {
-    this.getCurrentCategory().then(() => {
-      const el = this.tags.find((i) => i.data.name === to.query.tag);
-      const tagId = el && el.id ? el.id : null;
-      this.getCurrentCategory(tagId);
-      next();
+    this.getSukaBliat({
+      tag: to.query.tag,
+    }).then((res) => {
+      this.$store.commit(`blog/${mutt.SET_BLOG_PAGE}`, {
+        value: res,
+        mark: to.query.tag,
+      });
     });
-    this.$store.dispatch('blog/getArticles').then(() => to.query.tag, next());
+    next();
+  },
+  created() {
+    this.$store.dispatch('blog/getTags');
+    console.log(this.$route.params);
+    if (this.$route.query.tag) {
+      this.getSukaBliat({
+        tag: this.$route.query.tag,
+      }).then((res) => {
+        this.$store.commit(`blog/${mutt.SET_BLOG_PAGE}`, {
+          value: res,
+          mark: this.$route.query.tag,
+        });
+      });
+    }
   },
 };
 </script>
