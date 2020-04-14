@@ -50,6 +50,7 @@
   }
 
   .title {
+    min-width: 250px;
     @include fontStyles(normal, 500, 18px, 27px, var(--c-txt));
   }
 

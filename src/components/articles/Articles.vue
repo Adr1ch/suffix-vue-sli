@@ -10,7 +10,7 @@
             <li class="item">
               <router-link
                 class="button"
-                :to="{ path: 'blog', props: true }"
+                :to="{ path: 'blog' }"
               >
                 {{trans.other.all | toUpper}}
               </router-link>
@@ -18,7 +18,7 @@
             <li class="item" v-for="tag in tags" :key="tag.id">
               <router-link
                 class="button"
-                :to="{ path: 'blog', query: { tag: tag.data.name }, props: false }"
+                :to="{ path: 'blog', query: { tag: tag.data.name } }"
               >
                 {{$t(`tags.${tag.data.name}`) | toUpper}}
               </router-link>

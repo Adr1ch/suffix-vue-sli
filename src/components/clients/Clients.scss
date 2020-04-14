@@ -80,6 +80,7 @@
   }
 
   .title {
+    min-width: 210px;
     @include fontStyles(normal, 800, 20px, 20px, var(--c-txt-clients));
   }
 }

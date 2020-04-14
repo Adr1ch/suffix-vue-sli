@@ -32,3 +32,24 @@
   font-family: var(--main-ff);
   margin-bottom: 50px;
 }
+
+@include respond-below(xs) {
+  .logo {
+    display: block;
+    width: 100%;
+  }
+
+  .logo-wrap {
+    width: 100%;
+    padding: 50px 0;
+  }
+
+  .content {
+    @include fontStyles(normal, normal, 12px, 163.35%, var(--c-dark));
+  }
+
+  .content p img {
+    display: block;
+    width: 100%;
+  }
+}
