@@ -80,3 +80,25 @@
     margin: 0;
   }
 }
+
+@include respond-between(sm, md) {
+  .info-section {
+    padding: 90px 40px;
+  }
+
+  .title {
+    @include fontStyles(normal, 500, 18px, 27px, var(--c-txt));
+    margin: 0;
+  }
+}
+
+@include respond-between(md, lg) {
+  .info-section {
+    padding: 100px 50px;
+  }
+
+  .title {
+    @include fontStyles(normal, 500, 22px, 27px, var(--c-txt));
+    margin-bottom: 10px;
+  }
+}

@@ -48,3 +48,19 @@
     @include fontStyles(normal, normal, 12px, 163.35%, var(--c-dark));
   }
 }
+
+@include respond-between(xs, sm) {
+  .logo {
+    display: block;
+    width: 100%;
+  }
+
+  .logo-wrap {
+    width: 100%;
+    padding: 50px 0;
+  }
+
+  .content {
+    @include fontStyles(normal, normal, 13px, 163.35%, var(--c-dark));
+  }
+}

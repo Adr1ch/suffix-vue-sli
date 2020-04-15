@@ -38,7 +38,7 @@
 }
 
 .link {
-  @include fontStyles(normal, 500, 16px, 24px, var(--c-txt));
+  @include fontStyles(normal, 500, 14px, 24px, var(--c-txt));
   text-decoration-line: underline;
   font-family: var(--main-ff);
 }
@@ -70,6 +70,12 @@
   @include fontStyles(normal, 500, 12px, 18px, var(--c-btn-txt));
   font-family: var(--main-ff);
   cursor: pointer;
+}
+
+.btn:hover {
+  border: 1px solid transparent;
+  background-color: var(--c-txt);
+  color: var(--c-dark);
 }
 
 @include respond-below (xs) {
@@ -106,7 +112,7 @@
   }
 }
 
-@include respond-below(sm) {
+@include respond-between(xs, md) {
   .info-section {
     padding: 50px 20px;
   }
@@ -134,5 +140,32 @@
 
   .btn {
     padding: 15px;
+  }
+}
+
+@include respond-between(md, lg) {
+  .info-section {
+    padding: 80px 40px;
+  }
+
+  .ti {
+    margin: 30px 0;
+  }
+
+  .title {
+    @include fontStyles(normal, 500, 24px, 32px, var(--c-txt));
+  }
+
+  .info {
+    @include fontStyles(normal, 300, 13px, 17px, var(--c-txt));
+  }
+
+  .dmy {
+    @include fontStyles(normal, 300, 13px, 10px, var(--c-txt));
+    letter-spacing: 4px;
+  }
+
+  .link {
+    @include fontStyles(normal, 300, 13px, 10px, var(--c-txt));
   }
 }

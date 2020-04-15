@@ -50,7 +50,7 @@
   }
 }
 
-@include respond-below(sm) {
+@include respond-between(sm, md) {
   .btn {
     border: 3px solid var(--c-dark);
     padding: 15px 25px;
@@ -63,5 +63,16 @@
 
   .item {
     margin: 5px;
+  }
+}
+
+@include respond-between(md, lg) {
+  .btn {
+    padding: 15px 25px;
+    @include fontStyles(normal, 300, 16px, 20px, var(--c-dark));
+  }
+
+  .txt {
+    @include fontStyles(normal, 300, 14px, 20px, var(--c-brand));
   }
 }

@@ -15,6 +15,7 @@
 }
 
 .list {
+  max-width: 990px;
   display: flex;
   margin: 0 -5px;
   align-items: center;
@@ -22,6 +23,7 @@
 
 .item {
   margin: 10px;
+  width: calc(100% / 4 - 20px);
 }
 
 .articles-wrap {
@@ -40,10 +42,11 @@
 }
 
 .button {
+  display: inline-block;
   border: none;
   background-color: var(--c-btn-bg);
   padding: 10px 20px;
-  width: 250px;
+  width: 100%;
   text-align: center;
   @include fontStyles(normal, 500, 14px, 21px, var(--c-btn-txt));
   font-family: var(--main-ff);
@@ -146,7 +149,7 @@
   }
 }
 
-@include respond-below(sm) {
+@include respond-between(xs, sm) {
   .title_ {
     @include fontStyles(normal, 500, 22px, 20px, var(--c-brand));
     margin: 15px 0;
@@ -166,5 +169,53 @@
 
   .articles-wrap {
     padding: 0;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 10px 15px;
+    width: 100%;
+    @include fontStyles(normal, 500, 12px, 15px, var(--c-btn-txt));
+  }
+}
+
+@include respond-between(sm, md) {
+  .title_ {
+    @include fontStyles(normal, 500, 23px, 20px, var(--c-brand));
+    margin: 15px 0;
+  }
+
+  .info {
+    @include fontStyles(normal, 300, 16px, 20px, var(--c-brand));
+  }
+
+  .content-wrap {
+    padding: 40px 0 40px 0;
+  }
+
+  .current {
+    padding: 30px 0;
+  }
+
+  .articles-wrap {
+    padding: 0;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 10px 15px;
+    width: 100%;
+    @include fontStyles(normal, 500, 12px, 15px, var(--c-btn-txt));
+  }
+}
+
+@include respond-between(md, lg) {
+  .title_ {
+    @include fontStyles(normal, 500, 23px, 24px, var(--c-brand));
+    margin: 15px 0;
+  }
+
+  .info {
+    @include fontStyles(normal, 300, 16px, 22px, var(--c-brand));
   }
 }

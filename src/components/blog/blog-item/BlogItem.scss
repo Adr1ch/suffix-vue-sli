@@ -62,7 +62,21 @@
   }
 }
 
-@include respond-below(sm) {
+@include respond-between(xs, sm) {
+  .item {
+    width: calc(100% - 20px);
+  }
+
+  .title {
+    @include fontStyles(normal, 500, 16px, 25px, var(--c-brand));
+  }
+
+  .info {
+    @include fontStyles(normal, 500, 14px, 20px, var(--c-brand));
+  }
+}
+
+@include respond-between(sm, md) {
   .title {
     @include fontStyles(normal, 500, 16px, 18px, var(--c-brand));
     margin: 15px 0;
@@ -70,5 +84,16 @@
 
   .info {
     @include fontStyles(normal, 500, 14px, 20px, var(--c-brand));
+  }
+}
+
+@include respond-between(md, lg) {
+  .title {
+    @include fontStyles(normal, 500, 20px, 18px, var(--c-brand));
+    margin: 15px 0;
+  }
+
+  .info {
+    @include fontStyles(normal, 500, 16px, 22px, var(--c-brand));
   }
 }

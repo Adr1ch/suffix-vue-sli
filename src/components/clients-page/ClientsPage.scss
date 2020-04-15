@@ -81,3 +81,19 @@
     @include fontStyles(normal, bold, 18px, 25px, var(--c-dark));
   }
 }
+
+@include respond-between(xs, sm) {
+  .logo {
+    display: block;
+    width: 100%;
+  }
+
+  .item {
+    padding: 20px 10px;
+    margin: 10px;
+  }
+
+  .title {
+    @include fontStyles(normal, bold, 18px, 25px, var(--c-dark));
+  }
+}

@@ -27,7 +27,7 @@
   @include fontStyles(normal, normal, 16.2px, 163.35%, var(--c-dark));
 }
 
-@include respond-below (xs) {
+@include respond-below(xs) {
   .item {
     min-width: 220px;
     padding: 20px;
@@ -54,5 +54,35 @@
 
   .info {
     @include fontStyles(normal, normal, 12px, 17px, var(--c-dark));
+  }
+}
+
+@include respond-between(sm, md) {
+  .item {
+    padding: 10px;
+  }
+
+  .title {
+    @include fontStyles(normal, 500, 14px, 20px, var(--c-dark));
+    margin: 10px 0;
+  }
+
+  .info {
+    @include fontStyles(normal, normal, 12px, 17px, var(--c-dark));
+  }
+}
+
+@include respond-between(md, lg) {
+  .item {
+    padding: 20px;
+  }
+
+  .title {
+    @include fontStyles(normal, 500, 16px, 20px, var(--c-dark));
+    margin: 10px 0;
+  }
+
+  .info {
+    @include fontStyles(normal, normal, 14px, 20px, var(--c-dark));
   }
 }

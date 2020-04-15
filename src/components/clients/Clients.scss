@@ -98,3 +98,9 @@
     margin-bottom: 10px;
   }
 }
+
+@include respond-between(sm, md) {
+  .default-section {
+    height: 500px;
+  }
+}
