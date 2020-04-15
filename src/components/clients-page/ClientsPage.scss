@@ -33,7 +33,7 @@
   margin: 20px;
   width: calc(100% / 2 - 40px);
   padding: 40px;
-  min-height: 400px;
+  min-height: 300px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -69,7 +69,7 @@
   }
 
   .list {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
   }
 
   .logo {
@@ -86,6 +86,10 @@
   .logo {
     display: block;
     width: 100%;
+  }
+
+  .list {
+    flex-wrap: wrap;
   }
 
   .item {

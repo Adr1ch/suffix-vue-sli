@@ -97,18 +97,28 @@
   }
 
   .dmy, .ti {
-    font-size: 12px;
-    line-height: 18px;
+    @include fontStyles(normal, 500, 12px, 18px, var(--c-txt));
+  }
+
+  .ti {
+    margin: 0;
+  }
+
+  .data {
+    margin-bottom: 20px;
   }
 
   .title {
-    font-size: 18px;
-    line-height: 27px;
+    @include fontStyles(normal, 500, 18px, 27px, var(--c-txt));
     margin-bottom: 20px;
   }
 
   .btn {
     margin-top: 20px;
+  }
+
+  .info {
+    @include fontStyles(normal, 300, 12px, 18px, var(--c-txt));
   }
 }
 

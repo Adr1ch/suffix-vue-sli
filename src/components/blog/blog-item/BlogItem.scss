@@ -55,6 +55,7 @@
 
   .title {
     @include fontStyles(normal, 500, 16px, 25px, var(--c-brand));
+    margin: 15px 0;
   }
 
   .info {
@@ -69,6 +70,7 @@
 
   .title {
     @include fontStyles(normal, 500, 16px, 25px, var(--c-brand));
+    margin: 15px 0;
   }
 
   .info {

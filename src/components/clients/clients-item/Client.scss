@@ -1,21 +1,32 @@
 .item {
-  min-width: 250px;
-  height: 120px;
+  width: calc(100% / 2);
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
+}
+
+.logo {
+  display: block;
+  width: 100%;
+}
+
+.link {
+  display: block;
+  width: 100%;
 }
 
 @include respond-below(xs) {
   .item {
-    height: auto;
-    padding: 10px;
+    height: 80px;
+    padding: 10px 20px;
   }
 }
 
 @include respond-below(sm) {
   .item {
-    height: auto;
+    height: 80px;
     padding: 10px;
   }
 }

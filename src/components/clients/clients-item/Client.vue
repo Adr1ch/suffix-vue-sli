@@ -1,6 +1,6 @@
 <template>
   <li class="item">
-    <router-link :to="'/client/' + client.data.slug">
+    <router-link class="link" :to="'/client/' + client.data.slug">
       <img class="logo" :src="client.data.image[1]" alt="">
     </router-link>
   </li>
