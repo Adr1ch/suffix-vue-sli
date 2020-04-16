@@ -70,6 +70,7 @@
   @include fontStyles(normal, 500, 12px, 18px, var(--c-btn-txt));
   font-family: var(--main-ff);
   cursor: pointer;
+  transition: all linear 0.2s;
 }
 
 .btn:hover {

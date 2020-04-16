@@ -1,14 +1,21 @@
 .btn {
-  border: none;
+  border: 1px solid transparent;
   background-color: var(--c-btn-bg);
   padding: 10px 20px;
   width: 250px;
   text-align: center;
   @include fontStyles(normal, 500, 14px, 21px, var(--c-btn-txt));
   font-family: var(--main-ff);
+  transition: all linear 0.2s;
 }
 
 .btn-wrap {
   display: flex;
   justify-content: center;
+}
+
+.btn:hover {
+  color: var(--c-btn-bg);
+  background-color: var(--c-txt);
+  border: 1px solid var(--c-btn-bg);
 }

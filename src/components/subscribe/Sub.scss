@@ -41,7 +41,13 @@
   text-align: center;
   @include fontStyles(normal, 500, 14px, 21px, var(--c-btn-txt));
   font-family: var(--main-ff);
-  cursor: pointer;
+  transition: all linear 0.2s;
+}
+
+.btn:hover {
+  border: 1px solid transparent;
+  background-color: var(--c-txt);
+  color: var(--c-dark);
 }
 
 @include respond-below(xs) {

@@ -59,6 +59,7 @@
   border: 1px solid black;
   font-family: var(--main-ff);
   @include fontStyles(normal, 300, 14px, 14px, var(--c-dark));
+  transition: all linear 0.2s;
 }
 
 .btn:hover,

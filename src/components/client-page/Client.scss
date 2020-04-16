@@ -58,11 +58,16 @@
   }
 
   .logo-wrap {
-    width: 100%;
+    width: 500px;
     padding: 50px 0;
   }
 
   .content {
     @include fontStyles(normal, normal, 13px, 163.35%, var(--c-dark));
   }
+
+  .title {
+    @include fontStyles(normal, 500, 16px, 27px, var(--c-dark));
+  }
+  
 }

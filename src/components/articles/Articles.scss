@@ -42,17 +42,25 @@
 }
 
 .button {
+  border: 1px solid transparent;
   display: inline-block;
-  border: none;
   background-color: var(--c-btn-bg);
   padding: 10px 20px;
   width: 100%;
   text-align: center;
   @include fontStyles(normal, 500, 14px, 21px, var(--c-btn-txt));
   font-family: var(--main-ff);
+  transition: all linear 0.2s;
 }
 
-////
+.button:hover,
+.button:active,
+.button:focus,
+.button:disabled {
+  color: var(--c-btn-bg);
+  background-color: var(--c-txt);
+  border: 1px solid var(--c-btn-bg);
+}
 
 .current {
   padding: 50px 0;
@@ -72,6 +80,7 @@
   position: relative;
   padding-top: 66.25%;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .photo {
@@ -80,6 +89,29 @@
   top: 0;
   width: 100%;
   height: 100%;
+  z-index: 0;
+  transition: all ease-in-out 0.2s;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all ease-in-out 0.2s;
+}
+
+.photo-wrap:hover .photo {
+  transform: scale(1.1);
+}
+
+.photo-wrap:hover .overlay {
+  opacity: 0.8;
+  background-color: black;
 }
 
 .title_ {

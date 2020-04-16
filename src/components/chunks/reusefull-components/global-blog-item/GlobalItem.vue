@@ -1,6 +1,7 @@
 <template>
   <li class="item">
     <div class="photo-wrap">
+      <div class="overlay"></div>
       <img class="photo" :src="item.data.image" alt="">
     </div>
     <div class="info-wrap">

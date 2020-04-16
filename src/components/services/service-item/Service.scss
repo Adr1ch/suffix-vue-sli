@@ -4,6 +4,12 @@
   width: calc(100% / 3 - 20px);
   display: flex;
   flex-direction: column;
+  transition: all ease-in-out 0.2s;
+}
+
+.item:hover {
+  background-color: rgb(236, 236, 236);
+  transform: scale(1.05);
 }
 
 .sprite-wrap {
