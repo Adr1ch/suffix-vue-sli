@@ -1,13 +1,25 @@
 <template>
   <div id="app">
     <Header></Header>
-    <router-view/>
+      <transition name="page">
+        <router-view/>
+      </transition>
     <Footer></Footer>
   </div>
 </template>
 
 <style lang="scss">
 @import "@/assets/scss/main.scss";
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s, transform 0.5s;
+}
+.page-enter,
+.page-leave-to {
+  transform: translateX(30%);
+  opacity: 0;
+}
 </style>
 
 <script>
