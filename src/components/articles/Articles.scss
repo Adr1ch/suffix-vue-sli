@@ -4,6 +4,16 @@
   text-align: center;
 }
 
+.art-link {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
 .title {
   @include fontStyles(normal, 500, 48px, 72px, var(--c-txt));
   text-transform: uppercase;
