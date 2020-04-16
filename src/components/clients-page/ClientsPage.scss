@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 120px;
+  height: 100px;
   width: 100%;
   padding: 10px 0;
 }
@@ -20,12 +20,6 @@
 .logo {
   display: block;
   width: 100%;
-  height: auto;
-}
-
-.link {
-  display: block;
-  width: 60%;
 }
 
 .content {
@@ -47,7 +41,7 @@
   margin: 20px;
   width: calc(100% / 2 - 40px);
   padding: 40px;
-  min-height: 400px;
+  height: 400px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
 
