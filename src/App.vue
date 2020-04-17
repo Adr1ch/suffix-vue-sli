@@ -5,6 +5,18 @@
         <router-view/>
       </transition>
     <Footer></Footer>
+    <div class="preloader">
+      <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
   </div>
 </template>
 

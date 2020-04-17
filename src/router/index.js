@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import store from '@/store';
 import VueRouter from 'vue-router';
+import preloader from '@/helpers/preloader';
+// import getGlobalData from '@/plugins/getGlobalData';
 import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);
@@ -45,11 +47,22 @@ const router = new VueRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-  store.dispatch('auth/login').then(
+  await preloader.showWithDeley(300);
+
+  if (to.matched.some((record) => record.meta.notProtected) || store.getters['auth/isLogin']) {
+    preloader.hideWithDeley(400);
+    return next();
+  }
+
+  // await getGlobalData();
+
+  return store.dispatch('auth/login').then(
     () => {
+      preloader.hide();
       next();
     },
     () => {
+      preloader.hide();
       next('/login');
     },
   );

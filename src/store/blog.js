@@ -48,7 +48,7 @@ export default {
   actions: {
     getTags({ commit, state }) {
       if (state.tags.length) {
-        return true;
+        return Promise.resolve();
       }
       return new Promise((resolve) => {
         http.get('/api/content/newsuffix/categories').then((res) => {

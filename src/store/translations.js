@@ -17,7 +17,10 @@ export default {
     },
   },
   actions: {
-    getTrans({ commit }) {
+    getTrans({ commit, state }) {
+      if (state.trans.length) {
+        return Promise.resolve();
+      }
       return new Promise((resolve) => {
         http.get('/api/content/newsuffix/translations').then((res) => {
           commit(mutt.SET_TRANS, res.data.items[0].data.list);
