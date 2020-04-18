@@ -4,7 +4,7 @@
       <div class="wrap">
         <div class="text-wrap">
           <h2 class="title">Упссс, ти шота папутал братка</h2>
-          <p class="text">Сайт спіздили гуманоїди, пиздуй бороздуй відси чепуха</p>
+          <p class="text">Те що ти шукаєш вкрали гуманоїди</p>
         </div>
         <div class="image-wrap">
           <img class="image" :src="require('@/assets/images/ufo.png')" alt="">
