@@ -46,7 +46,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-  await preloader.showWithDeley(300);
+  await preloader.show();
 
   if (to.matched.some((record) => record.meta.notProtected) || store.getters['auth/isLogin']) {
     preloader.hideWithDeley(400);
