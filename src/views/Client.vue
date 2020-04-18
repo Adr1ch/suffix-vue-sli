@@ -10,6 +10,11 @@ import { mapState, mapActions } from 'vuex';
 import { mutt } from '@/store/blog';
 
 export default {
+  data() {
+    return {
+      isLoad: false,
+    };
+  },
   components: {
     Client,
   },
@@ -20,7 +25,9 @@ export default {
     ...mapActions('clients', ['getClientsBySlug']),
   },
   created() {
-    this.getClientsBySlug(this.$route.params.slug);
+    this.getClientsBySlug(this.$route.params.slug).then(() => {
+      this.isLoad = true;
+    });
   },
   beforeRouteLeave(to, from, next) {
     this.$store.commit(`clients/${mutt.DELETE_CLIENT}`);

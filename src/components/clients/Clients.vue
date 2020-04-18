@@ -1,5 +1,5 @@
 <template>
-  <section class="clients">
+  <section class="clients" v-if="isLoad">
     <div class="wrap">
       <div class="photo-section">
         <img class="photo" :src="require('@/assets/images/photo3.jpg')" alt="">
@@ -25,6 +25,11 @@ import Client from '@/components/clients/clients-item/Client.vue';
 import { mapState } from 'vuex';
 
 export default {
+  data() {
+    return {
+      isLoad: false,
+    };
+  },
   components: {
     Client,
   },
@@ -33,7 +38,9 @@ export default {
     ...mapState('translations', ['trans']),
   },
   created() {
-    this.$store.dispatch('clients/getClients');
+    this.$store.dispatch('clients/getClients').then(() => {
+      this.isLoad = true;
+    });
   },
 };
 </script>

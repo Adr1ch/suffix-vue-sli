@@ -1,37 +1,17 @@
 <template>
   <div id="app">
     <Header></Header>
-      <transition name="page">
-        <router-view/>
-      </transition>
+      <router-view/>
     <Footer></Footer>
     <div class="preloader">
-      <div class="lds-roller">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+      <img :src="require('@/assets/images/logo.png')" alt="">
+      <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
     </div>
   </div>
 </template>
 
 <style lang="scss">
 @import "@/assets/scss/main.scss";
-
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 0.5s, transform 0.5s;
-}
-.page-enter,
-.page-leave-to {
-  transform: translateX(30%);
-  opacity: 0;
-}
 </style>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
-  <section class="baner">
+  <section class="baner" v-if="isLoad">
     <div class="photo-section">
-      <img class="photo" :src="filtArticles.baner.image" alt="">
+      <img class="photo" :src="filtArticles.baner.image[0]" alt="">
     </div>
     <div class="info-section">
       <div class="data">
@@ -30,6 +30,11 @@ import { mapState, mapActions } from 'vuex';
 import { mutt } from '@/store/blog';
 
 export default {
+  data() {
+    return {
+      isLoad: false,
+    };
+  },
   computed: {
     ...mapState('translations', ['trans']),
     ...mapState('blog', ['filtArticles']),
@@ -44,6 +49,7 @@ export default {
         value: res[0].data,
         mark: 'baner',
       });
+      this.isLoad = true;
     });
   },
   methods: {
