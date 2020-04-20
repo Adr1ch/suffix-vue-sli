@@ -5,7 +5,7 @@
         <router-link to="/" class="logo">
           <img :src="require('@/assets/images/logo2.png')" alt="">
         </router-link>
-        <p class="subtitle">{{trans.other.footer}}</p>
+        <p class="subtitle">{{$t('other.footer')}}</p>
       </div>
     </div>
   </footer>

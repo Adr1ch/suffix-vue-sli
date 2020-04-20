@@ -1,5 +1,5 @@
 <template>
-  <div class="client">
+  <div class="client" v-if="isLoad">
     <Client :item="client"></Client>
   </div>
 </template>
@@ -31,6 +31,7 @@ export default {
   },
   beforeRouteLeave(to, from, next) {
     this.$store.commit(`clients/${mutt.DELETE_CLIENT}`);
+    this.isLoad = false;
     next();
   },
 };

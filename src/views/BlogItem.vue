@@ -1,6 +1,6 @@
 <template>
   <div class="blogitem">
-    <BlogPage :item="article"></BlogPage>
+    <BlogPage :item="article" v-if="isLoad"></BlogPage>
   </div>
 </template>
 
@@ -10,6 +10,11 @@ import { mapState, mapActions } from 'vuex';
 import { mutt } from '@/store/blog';
 
 export default {
+  data() {
+    return {
+      isLoad: false,
+    };
+  },
   components: {
     BlogPage,
   },
@@ -20,7 +25,9 @@ export default {
     ...mapActions('blog', ['getArticleBySlug']),
   },
   created() {
-    this.getArticleBySlug(this.$route.params.slug);
+    this.getArticleBySlug(this.$route.params.slug).then(() => {
+      this.isLoad = true;
+    });
   },
   beforeRouteLeave(to, from, next) {
     this.$store.commit(`blog/${mutt.DELETE_ARCTICLE}`);

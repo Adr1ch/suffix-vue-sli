@@ -1,7 +1,7 @@
 <template>
   <div class="articles">
     <div class="title-wrap">
-      <h2 class="title">{{trans.other.articles | toUpper}}</h2>
+      <h2 class="title">{{$t('other.articles') | toUpper}}</h2>
     </div>
     <div class="container">
       <div class="content-wrap">
@@ -12,7 +12,7 @@
                 class="button"
                 :to="{ path: 'blog' }"
               >
-                {{trans.other.all | toUpper}}
+                {{$t('other.all') | toUpper}}
               </router-link>
             </li>
             <li class="item" v-for="tag in tags" :key="tag.id">

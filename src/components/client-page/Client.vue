@@ -1,5 +1,5 @@
 <template>
-  <div class="client">
+  <div class="client" v-if="item">
     <div class="client-header">
       <div class="container">
         <div class="logo-wrap">

@@ -6,7 +6,7 @@
         <BlogList :tag="categories[0]"></BlogList>
         <GlobalList :tag="categories[0]"></GlobalList>
         <router-link to="/blog">
-          <GlobalBtn :btnTxt="$t(trans.other.all)"></GlobalBtn>
+          <GlobalBtn :btnTxt="'other.all'"></GlobalBtn>
         </router-link>
       </div>
     </div>
