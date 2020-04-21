@@ -8,7 +8,6 @@
   padding: 20px 40px;
   text-align: left;
   background: none;
-  font-family: var(--main-ff);
   @include fontStyles(normal, 500, 18px, 27px, var(--c-dark));
   text-transform: uppercase;
 }
@@ -24,17 +23,16 @@
   padding: 0;
   max-height: 20em;
   overflow: hidden;
-  transition: 0.5s ease-in-out;
+  transition: var(--acc-anim-open);
 }
 
 .is-closed .txt-wrap {
   max-height: 0;
-  transition: 0.3s linear;
+  transition: var(--acc-anim-close);
 }
 
 .txt {
   padding: 20px;
-  font-family: var(--main-ff);
   @include fontStyles(normal, 300, 18px, 27px, var(--c-brand));
 }
 

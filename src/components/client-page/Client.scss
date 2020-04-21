@@ -19,19 +19,16 @@
 
 .sub-title {
   @include fontStyles(normal, 300, 22px, 21px, var(--c-txt));
-  font-family: var(--main-ff);
 }
 
 .title {
   @include fontStyles(normal, 500, 18px, 27px, var(--c-dark));
-  font-family: var(--main-ff);
   text-transform: uppercase;
   margin-bottom: 50px;
 }
 
 .content {
   @include fontStyles(normal, normal, 14px, 163.35%, var(--c-dark));
-  font-family: var(--main-ff);
   margin-bottom: 50px;
 }
 

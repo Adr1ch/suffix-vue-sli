@@ -17,7 +17,6 @@
 .title {
   @include fontStyles(normal, 500, 48px, 72px, var(--c-txt));
   text-transform: uppercase;
-  font-family: var(--main-ff);
 }
 
 .content-wrap {
@@ -59,8 +58,7 @@
   width: 100%;
   text-align: center;
   @include fontStyles(normal, 500, 14px, 21px, var(--c-btn-txt));
-  font-family: var(--main-ff);
-  transition: all linear 0.2s;
+  transition: var(--btn-anim);
 }
 
 .button:hover,
@@ -100,7 +98,7 @@
   width: 100%;
   height: 100%;
   z-index: 0;
-  transition: all ease-in-out 0.2s;
+  transition: var(--art--anim);
 }
 
 .overlay {
@@ -112,7 +110,7 @@
   width: 100%;
   height: 100%;
   z-index: 1;
-  transition: all ease-in-out 0.2s;
+  transition: var(--art--anim);
 }
 
 .photo-wrap:hover .photo {
@@ -125,13 +123,11 @@
 }
 
 .title_ {
-  font-family: var(--main-ff);
   @include fontStyles(normal, 500, 24px, 36px, var(--c-brand));
   margin: 20px 0;
 }
 
 .info {
-  font-family: var(--main-ff);
   @include fontStyles(normal, 300, 18px, 27px, var(--c-brand));
 }
 
@@ -144,13 +140,11 @@
 .dmy {
   @include fontStyles(normal, 500, 12px, 18px, var(--c-dark));
   letter-spacing: 7px;
-  font-family: var(--main-ff);
 }
 
 .link {
   @include fontStyles(normal, 500, 12px, 18px, var(--c-dark));
   text-decoration-line: underline;
-  font-family: var(--main-ff);
 }
 
 @include respond-below(xs) {

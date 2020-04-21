@@ -23,13 +23,11 @@
 }
 
 .title {
-  font-family: var(--main-ff);
   @include fontStyles(normal, 500, 18px, 27px, var(--c-dark));
   margin: 20px 0;
 }
 
 .info {
-  font-family: var(--main-ff);
   @include fontStyles(normal, normal, 16.2px, 163.35%, var(--c-dark));
 }
 

@@ -3,7 +3,6 @@
 }
 
 .title {
-  font-family: var(--main-ff);
   @include fontStyles(normal, 500, 18px, 27px, var(--c-brand));
 }
 

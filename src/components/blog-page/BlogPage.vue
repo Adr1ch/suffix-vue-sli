@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-page" v-if="item[0].data">
+  <div class="blog-page">
     <div class="header">
       <div class="container">
         <div class="logo-wrap">

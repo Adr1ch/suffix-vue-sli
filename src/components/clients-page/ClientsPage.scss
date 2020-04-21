@@ -12,7 +12,6 @@
 }
 
 .title {
-  font-family: var(--main-ff);
   margin-bottom: 30px;
   @include fontStyles(normal, bold, 21px, 25px, var(--c-dark));
 }
@@ -23,7 +22,6 @@
 }
 
 .content {
-  font-family: var(--main-ff);
   @include fontStyles(normal, 300, 14px, 14px, var(--c-dark));
 }
 
@@ -57,9 +55,8 @@
 .btn {
   padding: 10px 20px;
   border: 1px solid black;
-  font-family: var(--main-ff);
   @include fontStyles(normal, 300, 14px, 14px, var(--c-dark));
-  transition: all linear 0.2s;
+  transition: var(--btn-anim);
 }
 
 .btn:hover,

@@ -1,9 +1,10 @@
-@mixin fontStyles($st, $w, $sz, $h, $c) {
+@mixin fontStyles($st, $w, $sz, $h, $c, $ff: var(--main-ff)) {
   font-style: $st;
   font-weight: $w;
   font-size: $sz;
   line-height: $h;
   color: $c;
+  font-family: $ff;
 }
 
 //

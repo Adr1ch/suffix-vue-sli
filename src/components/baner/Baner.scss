@@ -34,13 +34,11 @@
 .dmy {
   @include fontStyles(normal, 500, 14px, 21px, var(--c-txt));
   letter-spacing: 7px;
-  font-family: var(--main-ff);
 }
 
 .link {
   @include fontStyles(normal, 500, 14px, 24px, var(--c-txt));
   text-decoration-line: underline;
-  font-family: var(--main-ff);
 }
 
 .ti {
@@ -50,14 +48,12 @@
 }
 
 .title {
-  font-family: var(--main-ff);
   @include fontStyles(normal, 500, 28px, 42px, var(--c-txt));
   text-transform: uppercase;
   margin-bottom: 30px;
 }
 
 .info {
-  font-family: var(--main-ff);
   @include fontStyles(normal, 300, 14px, 21px, var(--c-txt));
 }
 
@@ -68,7 +64,6 @@
   border: 1px solid var(--c-btn-bdr);
   background: none;
   @include fontStyles(normal, 500, 12px, 18px, var(--c-btn-txt));
-  font-family: var(--main-ff);
   cursor: pointer;
   transition: all linear 0.2s;
 }

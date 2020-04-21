@@ -57,7 +57,7 @@
   padding: 40px 30px;
   z-index: 200;
   top: 80px;
-  background-color: black;
+  background-color: var(--c-dark);
   opacity: 0.7;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   visibility: hidden;
@@ -77,7 +77,7 @@
 }
 
 .link {
-  color: white;
+  color: var(--c-txt);
   text-decoration: none;
   position: relative;
   display: block;
@@ -108,7 +108,7 @@
 }
 
 .link:hover::before {
-  animation: animate .4s linear forwards;
+  animation: animate var(--burg-anim);
 }
 
 @keyframes animate {

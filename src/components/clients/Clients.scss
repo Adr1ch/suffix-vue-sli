@@ -55,7 +55,6 @@
 .title {
   min-width: 300px;
   @include fontStyles(normal, 800, 24px, 207.9%, var(--c-txt-clients));
-  font-family: var(--main-ff);
   text-transform: uppercase;
   letter-spacing: 4px;
   margin-bottom: 20px;

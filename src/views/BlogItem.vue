@@ -31,6 +31,7 @@ export default {
   },
   beforeRouteLeave(to, from, next) {
     this.$store.commit(`blog/${mutt.DELETE_ARCTICLE}`);
+    this.isLoad = false;
     next();
   },
 };
