@@ -1,3 +1,7 @@
+.client {
+  min-height: calc(100vh - 280px);
+}
+
 .client-header {
   background-color: var(--c-dark);
 }
@@ -45,6 +49,15 @@
 
   .content {
     @include fontStyles(normal, normal, 12px, 163.35%, var(--c-dark));
+    /deep/img {
+      display: inline-block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .sub-title {
+    @include fontStyles(normal, 300, 20px, 21px, var(--c-txt));
   }
 }
 

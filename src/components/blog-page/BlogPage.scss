@@ -1,3 +1,7 @@
+.blog-page {
+  min-height: calc(100vh - 280px);
+}
+
 .header {
   background-color: var(--c-dark);
 }
@@ -41,6 +45,25 @@
 .content {
   @include fontStyles(normal, 300, 14px, 21px, var(--c-dark));
   margin-bottom: 50px;
+}
+
+@include respond-below(xs) {
+  .logo-wrap {
+    padding: 70px 0;
+  }
+
+  .dl-wrap {
+    margin-bottom: 30px;
+    @include fontStyles(normal, 300, 13px, 20px, var(--c-txt));
+  }
+
+  .sub-title {
+    @include fontStyles(normal, 500, 18px, 42px, var(--c-txt));
+  }
+
+  .content {
+    margin: 0;
+  }
 }
 
 @include respond-below(sm) {

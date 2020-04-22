@@ -29,12 +29,6 @@
   transform: translateX(30%);
 }
 
-body {
-  &.overflow {
-    overflow: hidden;
-  }
-}
-
 .preloader {
   position: fixed;
   width: 100vw;
@@ -111,6 +105,16 @@ body {
   }
   100% {
     transform: translate(24px, 0);
+  }
+}
+
+#app {
+  min-height: calc(100vh - 280px);
+}
+
+body {
+  &.overflow {
+    overflow: hidden;
   }
 }
 
