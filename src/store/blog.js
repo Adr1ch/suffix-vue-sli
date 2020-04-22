@@ -86,7 +86,7 @@ export default {
       });
     },
     //
-    getSukaBliat({ dispatch, state }, { tag, skip, top }) {
+    getFilterArticles({ dispatch, state }, { tag, skip, top }) {
       return dispatch('getTags').then(() => {
         const currTag = state.tags.find((i) => i.data.name === tag);
         const tagId = currTag && currTag.id ? currTag.id : null;

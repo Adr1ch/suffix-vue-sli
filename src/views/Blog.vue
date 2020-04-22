@@ -14,10 +14,10 @@ export default {
     Articles,
   },
   methods: {
-    ...mapActions('blog', ['getSukaBliat']),
+    ...mapActions('blog', ['getFilterArticles']),
   },
   beforeRouteUpdate(to, from, next) {
-    this.getSukaBliat({
+    this.getFilterArticles({
       tag: to.query.tag,
     }).then((res) => {
       this.$store.commit(`blog/${mutt.SET_BLOG_PAGE}`, {
@@ -30,7 +30,7 @@ export default {
   created() {
     this.$store.dispatch('blog/getTags');
     if (this.$route.query.tag) {
-      this.getSukaBliat({
+      this.getFilterArticles({
         tag: this.$route.query.tag,
       }).then((res) => {
         this.$store.commit(`blog/${mutt.SET_BLOG_PAGE}`, {

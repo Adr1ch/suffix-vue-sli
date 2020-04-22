@@ -40,7 +40,7 @@ export default {
     ...mapState('blog', ['filtArticles']),
   },
   created() {
-    this.getSukaBliat({
+    this.getFilterArticles({
       tag: 'lifestyle',
       skip: 5,
       top: 1,
@@ -53,7 +53,7 @@ export default {
     });
   },
   methods: {
-    ...mapActions('blog', ['getSukaBliat']),
+    ...mapActions('blog', ['getFilterArticles']),
   },
 };
 </script>

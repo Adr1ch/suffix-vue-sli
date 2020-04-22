@@ -16,6 +16,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 70px;
+  @include fontStyles(normal, 300, 16px, 15px, var(--c-txt));
 }
 
 .link {
