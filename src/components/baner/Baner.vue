@@ -12,7 +12,7 @@
       </div>
       <div class="ti">
         <h2 class="title">{{ filtArticles.baner.title }}</h2>
-        <p class="info" v-html="filtArticles.baner.content"></p>
+        <p class="info" v-html="filtArticles.baner.preview"></p>
       </div>
       <router-link :to="'/blog/' + filtArticles.baner.slug" class="btn">
         {{$t(trans.other.more) | toUpper}}

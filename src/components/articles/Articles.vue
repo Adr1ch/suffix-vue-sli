@@ -51,7 +51,7 @@
                 </div>
                 <div class="title-info">
                   <h2 class="title_">{{ item.data.title }}</h2>
-                  <p class="info" v-html="item.data.content"></p>
+                  <p class="info" v-html="item.data.preview"></p>
                 </div>
               </div>
             </li>
