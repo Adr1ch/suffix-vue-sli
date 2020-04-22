@@ -13,7 +13,7 @@
   justify-content: center;
 }
 
-.btn:hover {
+.no-touchevents .btn:hover {
   color: var(--c-btn-bg);
   background-color: var(--c-txt);
   border: 1px solid var(--c-btn-bg);

@@ -44,11 +44,11 @@
   transition: var(--art--anim);
 }
 
-.photo-wrap:hover .photo {
+.no-touchevents .photo-wrap:hover .photo {
   transform: scale(1.1);
 }
 
-.photo-wrap:hover .overlay {
+.no-touchevents .photo-wrap:hover .overlay {
   opacity: 0.8;
   background-color: black;
 }

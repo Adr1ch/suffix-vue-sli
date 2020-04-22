@@ -7,7 +7,7 @@
   transition: all ease-in-out 0.2s;
 }
 
-.item:hover {
+.no-touchevents .item:hover {
   background-color: rgb(236, 236, 236);
   transform: scale(1.05);
 }

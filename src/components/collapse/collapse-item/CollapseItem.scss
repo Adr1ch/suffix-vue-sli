@@ -12,7 +12,7 @@
   text-transform: uppercase;
 }
 
-.btn:focus, 
+.no-touchevents .btn:focus, 
 .btn:hover {
   border: 4px solid transparent;
   background-color: var(--c-bg-acc);

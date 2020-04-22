@@ -103,11 +103,11 @@
   transition: 0.5s;
 }
 
-.link:hover {
+.no-touchevents .link:hover {
   color: var(--burg-color);
 }
 
-.link:hover::before {
+.no-touchevents .link:hover::before {
   animation: animate var(--burg-anim);
 }
 

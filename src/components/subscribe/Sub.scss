@@ -42,7 +42,7 @@
   transition: var(--btn-anim);
 }
 
-.btn:hover {
+.no-touchevents .btn:hover {
   border: 1px solid transparent;
   background-color: var(--c-txt);
   color: var(--c-dark);
