@@ -50,7 +50,9 @@
                   </router-link>
                 </div>
                 <div class="title-info">
-                  <h2 class="title_">{{ item.data.title }}</h2>
+                  <router-link :to="'/blog/' + item.data.slug">
+                    <h2 class="title_">{{ item.data.title }}</h2>
+                  </router-link>
                   <p class="info" v-html="item.data.preview"></p>
                 </div>
               </div>

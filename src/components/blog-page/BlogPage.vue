@@ -5,7 +5,7 @@
         <div class="logo-wrap">
           <div class="dl-wrap">
             <p class="date">{{ item[0].data.date | formatDate }}</p>
-            <router-link :to="'/blog'" class="link">
+            <router-link :to="'/blog?tag=' + getLink(item[0].data.reference)" class="link">
               {{ $t(`tags.${getLink(item[0].data.reference)}`)  | toUpper }}
             </router-link>
           </div>

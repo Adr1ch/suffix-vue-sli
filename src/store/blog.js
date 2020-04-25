@@ -8,6 +8,7 @@ const mutt = {
   SET_TAGS: 'SET_TAGS',
   SET_WTF: 'SET_WTF',
   SET_BLOG_PAGE: 'SET_BLOG_PAGE',
+  SET_ARTICLES_FILTER: 'SET_ARTICLES_FILTER',
 };
 
 export { mutt };
@@ -18,6 +19,7 @@ export default {
     articles: [],
     tags: [],
     filtArticles: {},
+    objectNew: {},
     blogPage: {},
     article: [],
     loaded: false,
@@ -28,6 +30,9 @@ export default {
     },
     [mutt.SET_BLOG_PAGE](state, { value, mark }) {
       Vue.set(state.blogPage, mark, value);
+    },
+    [mutt.SET_ARTICLES_FILTER](state, { tag, data }) {
+      Vue.set(state.objectNew, tag, data);
     },
     [mutt.SET_TAGS](state, tags) {
       state.tags = tags;
@@ -104,10 +109,43 @@ export default {
       });
     },
     //
+    // lastTry({ dispatch, state, commit }) {
+    //   return dispatch('getTags').then(() => {
+    //     const requestsByTags = state.tags.map((tag, index) => new Promise((resolve) => {
+    //       const objectWithSettings = {
+    //         params: {
+    //           $filter: `data/reference/iv eq '${tag.id}'`,
+    //           $top: index === 2 ? 6 : 3,
+    //         },
+    //       };
+    //       http.get('/api/content/newsuffix/articles', objectWithSettings).then((res) => {
+    //         commit(mutt.SET_ARTICLES_FILTER, {
+    //           tag: tag.data.name,
+    //           data: res.data.items,
+    //         });
+    //         resolve(res.data.items);
+    //       });
+    //     }));
+
+    //     return Promise.all(requestsByTags);
+    //   });
+    // },
+    // екшн щоби зробити по другому варіанту роботу, через гетери
+    //
   },
   getters: {
     getTagById(state) {
       return (id) => state.tags.find((i) => i.id === id);
     },
+    // getTwoArticles(state) {
+    //   return state.objectNew.lifestyle.slice(3, 5);
+    // },
+    // getOneArticle(state) {
+    //   return state.objectNew.lifestyle[5].data;
+    // },
+    // getThreeArticle(state) {
+    //   return state.objectNew.lifestyle.slice(0, 3);
+    // },
+    // гетери, для другого варіанту
   },
 };

@@ -11,11 +11,13 @@
         </router-link>
       </div>
       <div class="ti">
-        <h2 class="title">{{ filtArticles.baner.title }}</h2>
+        <router-link :to="'/blog/' + filtArticles.baner.slug">
+          <h2 class="title">{{ filtArticles.baner.title }}</h2>
+        </router-link>
         <p class="info" v-html="filtArticles.baner.preview"></p>
       </div>
       <router-link :to="'/blog/' + filtArticles.baner.slug" class="btn">
-        {{$t(trans.other.more) | toUpper}}
+        {{$t('other.more') | toUpper}}
       </router-link>
     </div>
   </section>
@@ -36,7 +38,6 @@ export default {
     };
   },
   computed: {
-    ...mapState('translations', ['trans']),
     ...mapState('blog', ['filtArticles']),
   },
   created() {

@@ -11,6 +11,9 @@
                 </ul>
             </div>
         </div>
+        <!-- <div v-if="twoArticles.length">
+          <pre>{{twoArticles}}</pre>
+        </div> -->
     </section>
 </template>
 
@@ -28,10 +31,12 @@ export default {
   },
   computed: {
     ...mapState('advantages', ['advantages']),
-    ...mapState('translations', ['trans']),
     ...mapGetters('advantages', {
       advantages: 'revArr',
     }),
+    // ...mapGetters('blog', {
+    //   twoArticles: 'getTwoArticles',
+    // }),
   },
   created() {
     this.$store.dispatch('advantages/getAdvantages');

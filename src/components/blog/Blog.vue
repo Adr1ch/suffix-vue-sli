@@ -3,7 +3,7 @@
     <div class="container">
       <div class="wrap">
         <h3 class="title">{{$t(`tags.${categories[0]}`) | toUpper}}</h3>
-        <BlogList :tag="categories[0]"></BlogList>
+        <BlogList :tag="categories[0]" :mark="'double'"></BlogList>
         <GlobalList :tag="categories[0]"></GlobalList>
         <router-link to="/blog">
           <GlobalBtn :btnTxt="'other.all'"></GlobalBtn>
@@ -19,7 +19,6 @@
 
 <script>
 import BlogList from '@/components/blog/blog-list/BlogList.vue';
-import { mapState } from 'vuex';
 
 export default {
   data() {
@@ -29,9 +28,6 @@ export default {
   },
   components: {
     BlogList,
-  },
-  computed: {
-    ...mapState('translations', ['trans']),
   },
 };
 </script>

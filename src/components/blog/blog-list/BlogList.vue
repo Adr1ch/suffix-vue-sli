@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap" v-if="filtArticles.double">
     <ul class="list">
       <BlogItem
       v-for="item in filtArticles.double"
@@ -20,6 +20,14 @@ import { mapState, mapActions } from 'vuex';
 import { mutt } from '@/store/blog';
 
 export default {
+  props: {
+    tag: {
+      type: String,
+    },
+    mark: {
+      type: String,
+    },
+  },
   components: {
     BlogItem,
   },
@@ -28,13 +36,13 @@ export default {
   },
   created() {
     this.getFilterArticles({
-      tag: 'lifestyle',
+      tag: this.tag,
       skip: 3,
       top: 2,
     }).then((res) => {
       this.$store.commit(`blog/${mutt.SET_WTF}`, {
         value: res,
-        mark: 'double',
+        mark: this.mark,
       });
     });
   },

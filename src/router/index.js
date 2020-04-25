@@ -33,9 +33,13 @@ const routes = [
     component: () => import('@/views/Clients.vue'),
   },
   {
-    path: '*',
+    path: '/404',
     name: 'PageNotFound',
     component: () => import('@/views/PageNotFound.vue'),
+  },
+  {
+    path: '*',
+    redirect: '/404',
   },
 ];
 

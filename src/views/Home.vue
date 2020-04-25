@@ -20,6 +20,11 @@ import Chapters from '@/components/chapters/Chapters.vue';
 import Collapse from '@/components/collapse/Collapse.vue';
 
 export default {
+  // data() {
+  //   return {
+  //     loaded: false,
+  //   };
+  // },
   components: {
     Baner,
     Services,
@@ -29,5 +34,11 @@ export default {
     Chapters,
     Collapse,
   },
+  // created() {
+  //   this.$store.dispatch('blog/lastTry').then(() => {
+  //     this.loaded = true;
+  //   });
+  // },
+  // це другий варіант
 };
 </script>
