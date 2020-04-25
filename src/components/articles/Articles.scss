@@ -59,6 +59,12 @@
   text-align: center;
   @include fontStyles(normal, 500, 14px, 21px, var(--c-btn-txt));
   transition: var(--btn-anim);
+  
+  &.router-link-exact-active {
+    color: var(--c-btn-bg);
+    background-color: var(--c-txt);
+    border: 1px solid var(--c-btn-bg);
+  }
 }
 
 .no-touchevents .button:hover,
